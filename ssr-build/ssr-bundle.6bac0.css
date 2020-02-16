@@ -1,4 +1,3 @@
-/* resets and things */
 html, body {
 	height: 100%;
 	width: 100%;
@@ -20,10 +19,8 @@ html, body {
 	height: 100%;
 }
 
-/* variables */
 :root {
   --main-color: #a9313f;
-	--bg-color: #ffece2;
 }
 
 a {
@@ -45,11 +42,13 @@ a {
 }
 
 .header__3QGkI h1 {
+	/* float: left; */
 	display: block;
 	margin: 0;
 	font-size: 1.6rem;
 	line-height: 56px;
 	font-weight: 400;
+	/* color: #fff; */
 }
 
 .footer__14P9B {
@@ -70,8 +69,8 @@ body, html {
 	min-height: 100%;
 	margin:0;
 	width: 100%;
-	color: var(--main-color);
-	background-color: var(--bg-color);
+	color: #a9313f;
+	background-color: #ffece2;
 }
 
 .post__10_hF {
@@ -97,6 +96,15 @@ img {
   width: 100%;
 }
 
+@media screen and (min-width: 768px) {
+  img{
+  	display: block;
+  	float: left;
+	  max-width: 400px;
+		margin: 10px;
+  }
+}
+
 .images__2eeLY {
 	height: auto;
 	overflow: auto;
@@ -111,19 +119,11 @@ img {
 }
 
 .images__2eeLY img {
-	margin: 10px 20px 0 0;
+	margin-right: 20px;
 }
 
 .images__2eeLY img:last-of-type {
 	margin-right: 0;
-}
-
-@media screen and (min-width: 768px) {
-  img{
-  	display: block;
-  	float: left;
-	  max-width: 380px;
-  }
 }
 
 .paginationlink__E2TL9 {
@@ -135,5 +135,11 @@ img {
   color: #f00;
 }
 
+.profile__t2Dqz {
+	padding: 56px 20px;
+	min-height: 100%;
+	width: 100%;
+}
 
-/*# sourceMappingURL=ssr-bundle.00463.css.map*/
+
+/*# sourceMappingURL=ssr-bundle.6bac0.css.map*/
