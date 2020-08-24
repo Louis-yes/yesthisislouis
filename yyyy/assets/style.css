@@ -1,0 +1,24 @@
+:root {
+  --accent: #ff4136;
+  --main: 000#;
+}
+
+body {
+  padding: 2rem;
+}
+
+.page-name {
+  color: var(--accent);
+  font-family: georgia;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.link, .link:link {
+  transition: none;
+  color: var(--main);
+}
+
+.link:hover {
+  color: var(--accent);
+}
