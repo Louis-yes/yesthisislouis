@@ -1,0 +1,6 @@
+.louis {
+  appearance: 'handsome';
+}
+*::-webkit-scrollbar {
+    display: none;
+}
