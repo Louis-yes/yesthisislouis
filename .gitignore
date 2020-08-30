@@ -1,2 +1,6 @@
 ./ideas
 ./ideas/*
+./blog/node_modules
+./blog/node_modules/
+./newblog/
+./lies
