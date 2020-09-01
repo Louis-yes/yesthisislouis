@@ -1,6 +1,28 @@
 .louis {
   appearance: 'handsome';
 }
+:root {
+  --primary: #ff4136;
+}
 *::-webkit-scrollbar {
     display: none;
+}
+
+.tag {
+  display: inline-block;
+  cursor: pointer;
+  padding: .3em;
+  margin: .3em;
+  transition: transform .2s ease-in-out;
+  background: white;
+  border: 1px solid var(--primary);
+  color:      var(--primary);
+}
+.tag::selection{
+  background-color:none; 
+}
+.tag:hover{ transform: matrix(1, 0, 0, 1, 0, -3); }
+.tag.active {
+  color: white;
+  background: var(--primary);
 }

@@ -12,8 +12,10 @@ for(var i = 0; i < tagsList.length; i++){
   var h = tagsList[i].href.split('/')
 
   ss.innerHTML = tagsList[i].innerHTML
-  ss.className = tagsList[i].className + ' pointer'
   ss.dataset.href = h[h.length-1]
+  ss.className = "tag"
+  ss.tabindex = 0
+  
   ss.addEventListener('click', filterByTag)
 
   tagsList[i].parentNode.replaceChild(ss, tagsList[i])
@@ -27,7 +29,7 @@ var activeTags = []
 function updateLinks(ll){
   // reset all
   for(var i = 0; i < ll.length; i++){
-      ll[i].style=""
+      ll[i].style =""
   }
   // loop through active tags and hide any links that include those tags
   for(var u = 0; u < activeTags.length; u++){
@@ -44,25 +46,18 @@ function updateLinks(ll){
 // click handler for tags
 function filterByTag(e){
   var self = e.target
-  var cl = self.classList
-  if(!cl.contains('active')){
-    // this should be done with css but i'm lazy
-    cl.add('active','bg-red','white')
-    cl.remove('red')
+  if(activeTags.indexOf(self.innerText) < 0){
     // add the clicked tag to the activeTags list
     activeTags.push(self.innerText)
+    self.classList.add('active')
   } else {
-    // this should be done with css but i'm lazy
-    cl.remove('active','bg-red','white')
-    cl.add('red')
     // remove the tag from the activeTags list
     var i = activeTags.indexOf(self.innerText)
     if(i >= 0){
       activeTags.splice(i,1)
     }
+    self.classList.remove('active')
   }
   // update links
   updateLinks(linksList)
 }
-
-console.log("Hi Giles")
