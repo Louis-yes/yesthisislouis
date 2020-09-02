@@ -4,25 +4,40 @@
 :root {
   --primary: #ff4136;
 }
-*::-webkit-scrollbar {
-    display: none;
-}
 
+/* self explanatory */
+*::-webkit-scrollbar { display: none; }
+
+/* Tag styling */
+.tags {
+  /* padding: 1em */
+}
 .tag {
   display: inline-block;
-  cursor: pointer;
   padding: .3em;
   margin: .3em;
+
   transition: transform .2s ease-in-out;
   background: white;
   border: 1px solid var(--primary);
+
+  cursor: pointer;
+
   color:      var(--primary);
+  font-size: 1em;
+  font-family: serif;
+  font-weight: 300;
 }
-.tag::selection{
-  background-color:none; 
+.tag::selection{ background-color:none; }
+.tag:hover, .tag:focus{ transform: matrix(1, 0, 0, 1, 0, -3); }
+.tag.active { color: white; background: var(--primary); }
+
+.active-tags { display: block; font-style: italic; color: var(--primary);}
+
+/* Link Styling */
+.link {
+  display: block;
+  text-decoration: underline;
+  color: black;
 }
-.tag:hover{ transform: matrix(1, 0, 0, 1, 0, -3); }
-.tag.active {
-  color: white;
-  background: var(--primary);
-}
+.link:hover, .link:focus { color: var(--primary); }

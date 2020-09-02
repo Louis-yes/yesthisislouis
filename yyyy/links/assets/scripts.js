@@ -8,21 +8,21 @@ var linksList = links.getElementsByClassName('link')
 
 // loop through tags and convert them to spans, as we don't want them as links anymore
 for(var i = 0; i < tagsList.length; i++){
-  var ss = document.createElement('span')
+  var ss = document.createElement('button')
   var h = tagsList[i].href.split('/')
 
   ss.innerHTML = tagsList[i].innerHTML
   ss.dataset.href = h[h.length-1]
   ss.className = "tag"
-  ss.tabindex = 0
-  
+  ss.tabIndex = 0
+
   ss.addEventListener('click', filterByTag)
 
   tagsList[i].parentNode.replaceChild(ss, tagsList[i])
 }
 
 // select the active tags element
-var activeTags_el = document.querySelector('#activeTags')
+var activeTags_el = document.querySelector('#active-tags')
 var activeTags = []
 
 // this function accepts a list of links as an argument and updates their visibilty
