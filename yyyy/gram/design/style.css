@@ -18,11 +18,16 @@
 .slides {
   display:      flex;
   overflow-x:   auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior:  smooth;
+  /* scroll-snap-type: x mandatory; */
+  /* scroll-behavior:  smooth; */
   -webkit-overflow-scrolling: touch;
+  cursor: grab;
   /* align-items: center; */
   /* justify-content: center; */
+}
+
+.slide:active {
+  cursor: grabbing;
 }
 
 .slides::-webkit-scrollbar { display: none; }

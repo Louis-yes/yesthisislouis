@@ -54,5 +54,17 @@
 				"title": "Cut off but not cut down"
 			}
 		]
+	},
+	{
+		"title": "Treasure",
+		"content": "What will you do if the game keeps changing? \r\nWill you die on the vine, choosing it over?\r\nAnd when you bleed out, you’ll know better than that\r\nAnd that you couldn’t take it\r\n\r\nFrom Treasure by Aldous Harding",
+		"date": "2020-09-26",
+		"images": [
+			{
+				"src": "./files/2020-09-26-Treasure/Treasure-0.jpeg",
+				"alt": "A pomegranate tree hanging over a fence on a mildly overcast day ",
+				"title": "This is how constellations are made"
+			}
+		]
 	}
 ]
