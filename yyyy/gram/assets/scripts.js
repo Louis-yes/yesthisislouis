@@ -52,7 +52,7 @@ function getSites() {
     .then(response => response.json())
     .then(data => {
         var app_content = document.getElementById('thegoods');
-        data.map((file) => {
+        data.reverse().map((file) => {
           app_content.insertAdjacentHTML('beforeend', post(file))
         })
         window.setTimeout(function () {
