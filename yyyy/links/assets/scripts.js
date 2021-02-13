@@ -2,6 +2,10 @@
 var tags = document.querySelector('.tags')
 var tagsList = tags.getElementsByClassName('tag')
 
+// select the active tags element
+var activeTags_el = document.querySelector('#active-tags')
+var activeTags = []
+
 //select the div that holds all the links, then select the links
 var links = document.querySelector('.links')
 var linksList = links.getElementsByClassName('link')
@@ -21,21 +25,18 @@ for(var i = 0; i < tagsList.length; i++){
   tagsList[i].parentNode.replaceChild(ss, tagsList[i])
 }
 
-// select the active tags element
-var activeTags_el = document.querySelector('#active-tags')
-var activeTags = []
-
 // this function accepts a list of links as an argument and updates their visibilty
 function updateLinks(ll){
   // reset all
   for(var i = 0; i < ll.length; i++){
-      ll[i].style =""
+      ll[i].style = ""
   }
   // loop through active tags and hide any links that include those tags
   for(var u = 0; u < activeTags.length; u++){
     for(var i = 0; i < ll.length; i++){
-      if(ll[i].dataset.tags.split(',').indexOf(activeTags[u]) < 0){
-        ll[i].style="display: none"
+      var isActive = ll[i].dataset.tags.split(',').indexOf(activeTags[u]) > 0
+      if(!isActive){
+        ll[i].style = "display: none"
       }
     }
   }
@@ -43,7 +44,9 @@ function updateLinks(ll){
   activeTags_el.innerText = activeTags.join(' & ')
 }
 
-// click handler for tags
+/*
+  Event listener for
+*/
 function filterByTag(e){
   var self = e.target
   if(activeTags.indexOf(self.innerText) < 0){

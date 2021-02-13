@@ -8,20 +8,28 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
       <title>l i n k s</title>
       <link rel="stylesheet" href="assets/tachyons.min.css"/>
-      <link rel="stylesheet" href="assets/style.css?v=6"/>
+      <link rel="stylesheet" href="assets/style.css?v=49"/>
     </head>
     
     
-  <body class="pa3">
-    <div class="
-      tags
-      fixed
-      top-0 h-50
-      top-0-ns left-0-ns bottom-0-ns w-50-ns h-100-ns
-      overflow-scroll
-      "
-    >
-      <a href="HCI" class="
+  <body class="">
+    <main>
+      
+      <header>
+        <h1 class="title">Louis links</h1>
+      </header>
+      <section class="description">
+        <p class="about">These links are things I’ve found online that I liked</p>
+      </section>
+  
+      <section class="link-of-the-day">
+         <!-- <p>Link of the day is: </p> -->
+      </section>
+      <section id="tags" class="
+        tags
+        "
+      >
+        <a href="HCI" class="
       tag link
     ">HCI</a><a href="tools" class="
       tag link
@@ -153,18 +161,94 @@
       tag link
     ">good</a><a href="artists" class="
       tag link
-    ">artists</a>
-    </div>
-    <div class="
-      links
-      fixed pa2
-      bottom-0 h-50
-      top-0-ns right-0-ns bottom-0-ns h-100-ns w-50-ns
-      lh-copy
-      overflow-scroll
-      "
-    >
-      <span id="active-tags" class="active-tags"></span>
+    ">artists</a><a href="noise" class="
+      tag link
+    ">noise</a><a href="experimental" class="
+      tag link
+    ">experimental</a><a href="japan" class="
+      tag link
+    ">japan</a><a href="music" class="
+      tag link
+    ">music</a><a href="teaching" class="
+      tag link
+    ">teaching</a><a href="site" class="
+      tag link
+    ">site</a><a href="learning" class="
+      tag link
+    ">learning</a><a href="p2p" class="
+      tag link
+    ">p2p</a><a href="dat" class="
+      tag link
+    ">dat</a><a href="kites" class="
+      tag link
+    ">kites</a><a href="crafts" class="
+      tag link
+    ">crafts</a><a href="joyeria" class="
+      tag link
+    ">joyeria</a>
+      </section>
+      <section class="links-section">
+        <div class="filter-tools">
+          <label for="search" class="label search"> search </label><input type="text" name="search" id="search" />
+          <label for"sort-by" class="label sort-by"> sort by </label>
+          <select name="sort-by" id="sort-by" value="3">
+            <option value="1">A-Z</option>
+            <option value="2">Z-A</option>
+            <option value="3" selected>newest</option>
+            <option value="4">oldest</option>
+            <option value="5">who cares</option>
+          </select>
+          <span id="active-tags" class="active-tags">50 links</span>
+        </div>
+        <div id="links" class="links">
+          
+        <a
+          class="link"
+          href="https://instagram.com/j.suska/"
+          title="Liza's (short for Jelizaveta Suska) profile with her art jewellery."
+          data-tags="jewellery,joyeria,art,instagram">
+          Liza's (short for Jelizaveta Suska) profile with her art jewellery. - instagram.com/j.suska
+        </a>
+      
+        <a
+          class="link"
+          href="https://www.my-best-kite.com/make-a-minimum-sled-kite.html"
+          title="Paper kite instructions"
+          data-tags="web,site,kites,crafts,paper">
+          Paper kite instructions - my-best-kite.com/make-a-minimum-sled-kite.html
+        </a>
+      
+        <a
+          class="link"
+          href="https://feathers-chat.hashbase.io/"
+          title="P2P (dat) website, open with beaker browser"
+          data-tags="web,development,p2p,dat">
+          P2P (dat) website, open with beaker browser - feathers-chat.hashbase.io
+        </a>
+      
+        <a
+          class="link"
+          href="https://johncaserta.com/teachingphilosophy.html"
+          title="I hate this website but they've designed some other good websites"
+          data-tags="web,design,development">
+          I hate this website but they've designed some other good websites - johncaserta.com/teachingphilosophy.html
+        </a>
+      
+        <a
+          class="link"
+          href="https://johncaserta.com/teachingphilosophy.html"
+          title="John Caserta teaching philosophy"
+          data-tags="design,graphic,teaching,web,site,learning">
+          John Caserta teaching philosophy - johncaserta.com/teachingphilosophy.html
+        </a>
+      
+        <a
+          class="link"
+          href="https://www.youtube.com/watch?v=bKuZzR2FknI&ab_channel=evilpaul"
+          title="Masona, god of noise"
+          data-tags="noise,experimental,japan,music">
+          Masona, god of noise - youtube.com/watch?v=bKuZzR2FknI&ab_channel=evilpaul
+        </a>
       
         <a
           class="link"
@@ -518,12 +602,600 @@
           A computer as a room - dynamicland.org
         </a>
       
-    </div>
-    <script src="./assets/scripts.js?v=6"></script>
-  </body>
-  
-    
+        </div>
+      </section>
+      
   <footer></footer>
+  
+    </main>
+    <script>
+      var links = [
+  {
+    "href": "https://instagram.com/j.suska/",
+    "title": "Liza's (short for Jelizaveta Suska) profile with her art jewellery.",
+    "tags": [
+      "jewellery",
+      "joyeria",
+      "art",
+      "instagram"
+    ]
+  },
+  {
+    "href": "https://www.my-best-kite.com/make-a-minimum-sled-kite.html",
+    "title": "Paper kite instructions",
+    "tags": [
+      "web",
+      "site",
+      "kites",
+      "crafts",
+      "paper"
+    ]
+  },
+  {
+    "href": "https://feathers-chat.hashbase.io/",
+    "title": "P2P (dat) website, open with beaker browser",
+    "tags": [
+      "web",
+      "development",
+      "p2p",
+      "dat"
+    ]
+  },
+  {
+    "href": "https://johncaserta.com/teachingphilosophy.html",
+    "title": "I hate this website but they've designed some other good websites",
+    "tags": [
+      "web",
+      "design",
+      "development"
+    ]
+  },
+  {
+    "href": "https://johncaserta.com/teachingphilosophy.html",
+    "title": "John Caserta teaching philosophy",
+    "tags": [
+      "design",
+      "graphic",
+      "teaching",
+      "web",
+      "site",
+      "learning"
+    ]
+  },
+  {
+    "href": "https://www.youtube.com/watch?v=bKuZzR2FknI&ab_channel=evilpaul",
+    "title": "Masona, god of noise",
+    "tags": [
+      "noise",
+      "experimental",
+      "japan",
+      "music"
+    ]
+  },
+  {
+    "href": "https://www.c82.net/blog/?id=80",
+    "title": "Botanical illustrations",
+    "tags": [
+      "art",
+      "illustration",
+      "design",
+      "graphic",
+      "web"
+    ]
+  },
+  {
+    "href": "http://www--arc.com/",
+    "title": "Web design as architecture",
+    "tags": [
+      "web",
+      "design",
+      "development",
+      "future",
+      "essay"
+    ]
+  },
+  {
+    "href": "https://handmade-web.net/",
+    "title": "Handmade web",
+    "tags": [
+      "web",
+      "design",
+      "development",
+      "education"
+    ]
+  },
+  {
+    "href": "https://www.mataahocollective.com/",
+    "title": "Mataaho Collective",
+    "tags": [
+      "art",
+      "artists",
+      "artist",
+      "aotearoa"
+    ]
+  },
+  {
+    "href": "https://awstudioart.com/home.html",
+    "title": "Amanda Williams",
+    "tags": [
+      "art",
+      "artist"
+    ]
+  },
+  {
+    "href": "https://idlewords.com/talks/website_obesity.htm",
+    "title": "Website obesity",
+    "tags": [
+      "article",
+      "essay",
+      "web",
+      "development",
+      "design"
+    ]
+  },
+  {
+    "href": "http://www.aran-koning.com/",
+    "title": "Aran Koning",
+    "tags": [
+      "games",
+      "art",
+      "artist"
+    ]
+  },
+  {
+    "href": "http://rebeccamoss.co.uk/",
+    "title": "Rebecca Moss",
+    "tags": [
+      "art",
+      "artist",
+      "video",
+      "good"
+    ]
+  },
+  {
+    "href": "https://puzzlemanleung.com/Portfolio",
+    "title": "Puzzleman Leung (Leong Chong Lao,1987)",
+    "tags": [
+      "photography",
+      "art",
+      "artist"
+    ]
+  },
+  {
+    "href": "http://www.popupology.co.uk/galleries",
+    "title": "Some pop ups",
+    "tags": [
+      "popup",
+      "art"
+    ]
+  },
+  {
+    "href": "jon-kyle.com/entries/",
+    "title": "Jon Kyle's blog",
+    "tags": [
+      "web",
+      "design",
+      "blog"
+    ]
+  },
+  {
+    "href": "https://wiki.xxiivv.com/site/home.html",
+    "title": "Devine Lu Linvega",
+    "tags": [
+      "artist",
+      "art",
+      "web",
+      "design"
+    ]
+  },
+  {
+    "href": "https://artreview.com/catching-a-break/",
+    "title": "Why taking a break is a good thing for people who care about art",
+    "tags": [
+      "art",
+      "article",
+      "magazine"
+    ]
+  },
+  {
+    "href": "http://blog.colettefu.com/",
+    "title": "Colette Fu's blog",
+    "tags": [
+      "blog",
+      "art",
+      "popup",
+      "paper",
+      "photographer",
+      "artist"
+    ]
+  },
+  {
+    "href": "https://www.youtube.com/watch?v=VeNr-nUdW5g&ab_channel=Trplea",
+    "title": "I'm a gospel hearer",
+    "tags": [
+      "youtube",
+      "short"
+    ]
+  },
+  {
+    "href": "https://lorenschmidt.itch.io/star-guard",
+    "title": "Star guard by Loren Schmidt",
+    "tags": [
+      "game",
+      "art"
+    ]
+  },
+  {
+    "href": "http://clementvalla.com/",
+    "title": "Clement Valla, new york based artist",
+    "tags": [
+      "art",
+      "sculpture",
+      "artist",
+      "3D",
+      "photogrammetry"
+    ]
+  },
+  {
+    "href": "https://github.com/evnbr/bindery",
+    "title": "JS library for designing printable books with HTML and CSS",
+    "tags": [
+      "design",
+      "print",
+      "web",
+      "js",
+      "tools"
+    ]
+  },
+  {
+    "href": "https://www.youtube.com/watch?v=ZD_3_gsgsnk",
+    "title": "Using geothermal heat to grow oranges in the snow",
+    "tags": [
+      "documentary",
+      "youtube",
+      "video"
+    ]
+  },
+  {
+    "href": "https://www.pantograph-punch.com/posts/Return-to-Places-Unknown",
+    "title": "A personal essay by Janna Tay.",
+    "tags": [
+      "essay",
+      "aotearoa",
+      "writing",
+      "magazine"
+    ]
+  },
+  {
+    "href": "http://blog.maxshinnpotential.com/",
+    "title": "Fun data analysis blog",
+    "tags": [
+      "data",
+      "analysis",
+      "maths",
+      "info-vis",
+      "blog"
+    ]
+  },
+  {
+    "href": "https://github.com/mattdesl/workshop-webgl-glsl/",
+    "title": "WebGL and Shaders workshop",
+    "tags": [
+      "webGL",
+      "shaders",
+      "web",
+      "development",
+      "education"
+    ]
+  },
+  {
+    "href": "https://sylph.io/blog/announce.html",
+    "title": "A Platform for systems biology",
+    "tags": [
+      "biology",
+      "systems",
+      "HCI"
+    ]
+  },
+  {
+    "href": "https://contemporaryartdaily.com/2017/01/robert-anton-at-broadway-1602/",
+    "title": "Great puppets by Robert Anton",
+    "tags": [
+      "puppets",
+      "art",
+      "artist",
+      "magazine"
+    ]
+  },
+  {
+    "href": "https://blocks-ui.com/",
+    "title": "A JSX-based page builder for creating beautiful websites without writing code",
+    "tags": [
+      "front-end",
+      "tools",
+      "web",
+      "development"
+    ]
+  },
+  {
+    "href": "http://www.artnet.com/artists/shirin-neshat/",
+    "title": "Iranian Visual Artist Shirin Neshat",
+    "tags": [
+      "art",
+      "iran",
+      "artist"
+    ]
+  },
+  {
+    "href": "https://www.contemporaryhum.com/roseanne-bartley-handshake-5",
+    "title": "Article about aotearoa jewellery makers Handshake 5",
+    "tags": [
+      "jewellery",
+      "art",
+      "interview",
+      "magazine"
+    ]
+  },
+  {
+    "href": "https://medium.com/styled-components",
+    "title": "Styled Components, a CSS in JS library",
+    "tags": [
+      "css",
+      "design",
+      "web",
+      "development",
+      "tools",
+      "front-end"
+    ]
+  },
+  {
+    "href": "https://www.instagram.com/keoghan92/",
+    "title": "Irish Actor Barry Keoghan",
+    "tags": [
+      "model",
+      "irish",
+      "handsome",
+      "instagram"
+    ]
+  },
+  {
+    "href": "http://aarontw.com/rhc.html",
+    "title": "Rain Hallowed Chalk",
+    "tags": [
+      "game"
+    ]
+  },
+  {
+    "href": "http://cdxs.ist/project-list",
+    "title": "Becca Abbe design projects",
+    "tags": [
+      "design",
+      "web",
+      "graphic",
+      "handmade"
+    ]
+  },
+  {
+    "href": "https://www.julesdurand.xyz/",
+    "title": "Jules Durand",
+    "tags": [
+      "typography",
+      "memes",
+      "graphic",
+      "design",
+      "web",
+      "fonts",
+      "research"
+    ]
+  },
+  {
+    "href": "https://ialab.it.monash.edu/webcola/examples/sucrosebreakdown.html",
+    "title": "Sucrose breakdown interactive diagram",
+    "tags": [
+      "data-viz",
+      "HCI",
+      "web",
+      "design",
+      "front-end"
+    ]
+  },
+  {
+    "href": "http://torukase.com/",
+    "title": "Toru Kase",
+    "tags": [
+      "art",
+      "graphic-art",
+      "prints",
+      "artist"
+    ]
+  },
+  {
+    "href": "https://everestpipkin.itch.io/the-worm-room",
+    "title": "a meditative game about rooms",
+    "tags": [
+      "games",
+      "game",
+      "art"
+    ]
+  },
+  {
+    "href": "https://aiezaki.com/",
+    "title": "Ai Ezaki",
+    "tags": [
+      "photography",
+      "artist",
+      "photographer"
+    ]
+  },
+  {
+    "href": "https://aip.pallasprojects.org/pages/pat-curran",
+    "title": "Pat Curran, good artist website",
+    "tags": [
+      "art",
+      "artist",
+      "web",
+      "design",
+      "HCI",
+      "painter"
+    ]
+  },
+  {
+    "href": "https://www.current-obsession.com/jussi-jarvinen/",
+    "title": "Quest ioning Jewellery with Jussi Järvinen",
+    "tags": [
+      "jewellery",
+      "art",
+      "artist",
+      "magazine",
+      "interview"
+    ]
+  },
+  {
+    "href": "https://www.firstbookaward.com",
+    "title": "art book award website",
+    "tags": [
+      "book-design",
+      "books",
+      "design",
+      "art"
+    ]
+  },
+  {
+    "href": "https://www.instagram.com/p/CBQUpheiTSM/?igshid=1l8bpcq1kfacn",
+    "title": "Instagram post about pacing yourself with projects",
+    "tags": [
+      "illustration",
+      "project-management",
+      "comics",
+      "cartoons"
+    ]
+  },
+  {
+    "href": "https://medium.com/@thi.ng/how-to-ui-in-2018-ac2ae02acdf3",
+    "title": "Article about functional programming for ui",
+    "tags": [
+      "HCI",
+      "tools",
+      "front-end",
+      "education"
+    ]
+  },
+  {
+    "href": "https://www.redblobgames.com/",
+    "title": "maths and programming for games",
+    "tags": [
+      "game",
+      "development",
+      "games",
+      "education"
+    ]
+  },
+  {
+    "href": "https://rsnous.com/",
+    "title": "home site for Omar Rizwan",
+    "tags": [
+      "HCI",
+      "education",
+      "web",
+      "design"
+    ]
+  },
+  {
+    "href": "https://dynamicland.org/",
+    "title": "A computer as a room",
+    "tags": [
+      "HCI",
+      "tools",
+      "research",
+      "education",
+      "future"
+    ]
+  }
+];
+      var tags = [
+  "HCI",
+  "tools",
+  "research",
+  "education",
+  "future",
+  "web",
+  "design",
+  "game",
+  "development",
+  "games",
+  "front-end",
+  "illustration",
+  "project-management",
+  "comics",
+  "cartoons",
+  "book-design",
+  "books",
+  "art",
+  "jewellery",
+  "artist",
+  "magazine",
+  "interview",
+  "painter",
+  "photography",
+  "photographer",
+  "graphic-art",
+  "prints",
+  "data-viz",
+  "typography",
+  "memes",
+  "graphic",
+  "fonts",
+  "handmade",
+  "model",
+  "irish",
+  "handsome",
+  "instagram",
+  "css",
+  "iran",
+  "puppets",
+  "biology",
+  "systems",
+  "webGL",
+  "shaders",
+  "data",
+  "analysis",
+  "maths",
+  "info-vis",
+  "blog",
+  "essay",
+  "aotearoa",
+  "writing",
+  "documentary",
+  "youtube",
+  "video",
+  "print",
+  "js",
+  "sculpture",
+  "3D",
+  "photogrammetry",
+  "short",
+  "popup",
+  "paper",
+  "article",
+  "good",
+  "artists",
+  "noise",
+  "experimental",
+  "japan",
+  "music",
+  "teaching",
+  "site",
+  "learning",
+  "p2p",
+  "dat",
+  "kites",
+  "crafts",
+  "joyeria"
+];
+    </script>
+    <!-- <script src="./assets/scripts.js?v=49"></script> -->
+    <script src="./assets/thegoods.js?v=49"></script>
+  </body>
   
   </html>
   
