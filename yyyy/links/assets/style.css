@@ -207,8 +207,6 @@ header, .description {
   .links {
     margin-top: 22px;
     font-size: 12pt;
-    height: 400px;
-    overflow-y: scroll;
   }
   .link {
     display: block;
