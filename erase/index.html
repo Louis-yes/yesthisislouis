@@ -113,6 +113,11 @@
 		<p>developed by <a href="https://yesthisislouis.com">Louis</a> for fun → <a href="https://github.com/Louis-yes/erase">here it is on github</a></p>
 	</footer>
   <script>
+    var mouseDown = (e) => {window.mouseDown = true;};
+    var mouseUp = (e) => {window.mouseDown = false; };
+    document.addEventListener('mousedown', mouseDown);
+  	document.addEventListener('mouseup', mouseUp);
+
     var init = (el) => {
       el.innerHTML = el.innerText.split("").map(w => {
         return `<span class="erase-able">${w}</span>`
