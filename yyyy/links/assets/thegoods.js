@@ -1,3 +1,7 @@
+/*
+    Global Variables
+*/
+
 var links = window.links;
 var tags = window.tags;
 var activeTags = [];
@@ -8,39 +12,9 @@ var activeTagsElement = document.querySelector("#active-tags");
 var searchQuery = "";
 var sortType = 3;
 
-var searchInput = document.querySelector("#search");
-searchInput.addEventListener('input', function(e){
-  searchQuery = e.target.value;
-  renderLinks();
-})
-
-var sortInput = document.querySelector("#sort-by");
-sortInput.addEventListener("input", function(e){
-  sortType = e.target.value;
-  renderLinks();
-})
-
-document.body.addEventListener('click', function(e){
-    if(e.target.classList.contains('tag')){
-      tagClickHandler(e);
-    }
-})
-
-
-
-function tagClickHandler(e) {
-  var tag = e.target.innerText;
-  var index = activeTags.indexOf(tag);
-  if(index < 0){
-    activeTags.push(tag)
-    e.target.classList.add("active")
-  } else {
-    activeTags.splice(index,1);
-    e.target.classList.remove("active")
-  }
-  renderLinks();
-}
-
+/*
+    Templates
+*/
 const templates = {
   link: function (ll) {
     return `
@@ -56,6 +30,9 @@ const templates = {
   }
 }
 
+/*
+    Render functions
+*/
 function renderLinks () {
   lll = activeTags.length ? filterLinks(activeTags) : links;
   lll = searchQuery ? searchLinks(lll, searchQuery) : lll;
@@ -84,6 +61,10 @@ function renderTags (filter) {
   });
 }
 
+/*
+    Filter and sorting functions
+*/
+
 function filterLinks (filters) {
   return links.filter(ll => {
     var isMatched = true;
@@ -93,6 +74,13 @@ function filterLinks (filters) {
       }
     }
     return isMatched
+  })
+}
+
+//this one isn't really used
+function filterTags (filter) {
+  return tags.filter(tt => {
+    return tt.includes(filter)
   })
 }
 
@@ -108,9 +96,7 @@ function searchLinks (links, searchTerm) {
 }
 
 function sortLinks (sort, lll) {
-  var href = function(h){
-    return h.replace('https://','').replace('www.','').replace(/\/$/,'')
-  }
+  var href = function(h){ return h.replace('https://','').replace('www.','').replace(/\/$/,'') }
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -141,15 +127,44 @@ function sortLinks (sort, lll) {
   }
 }
 
-function filterTags (filter) {
-  return tags.filter(tt => {
-    return tt.includes(filter)
-  })
+function _cfl(string) { return string.charAt(0).toUpperCase() + string.slice(1); }
+
+/*
+    Event listeners
+*/
+var searchInput = document.querySelector("#search");
+searchInput.addEventListener('input', function(e){
+  searchQuery = e.target.value;
+  renderLinks();
+})
+
+var sortInput = document.querySelector("#sort-by");
+sortInput.addEventListener("input", function(e){
+  sortType = e.target.value;
+  renderLinks();
+})
+
+document.body.addEventListener('click', function(e){
+    if(e.target.classList.contains('tag')){
+      tagClickHandler(e);
+    }
+})
+
+function tagClickHandler(e) {
+  var tag = e.target.innerText;
+  var index = activeTags.indexOf(tag);
+  if(index < 0){
+    activeTags.push(tag)
+    e.target.classList.add("active")
+  } else {
+    activeTags.splice(index,1);
+    e.target.classList.remove("active")
+  }
+  renderLinks();
 }
 
-function _cfl(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
+/*
+  Init
+*/
 renderLinks();
 renderTags();
