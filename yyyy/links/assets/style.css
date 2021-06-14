@@ -113,13 +113,27 @@ header, .description {
   outline: none;
   border: none;
 }
+.tag:before {
+  top: calc(50% - 13px);
+  left: calc(50% - 13px);
+}
+.tag:nth-of-type(2n):before {
+  top: calc(50% - 7px);
+  left: calc(50% - 12px);
+}
+.tag:nth-of-type(3n):before {
+  top: calc(50% - 14px);
+  left: calc(50% - 26px);
+}
+.tag:nth-of-type(4n):before {
+  top: calc(50% - 18px);
+  left: calc(50% - 10px);
+}
 .tag.active::before {
   content: "";
   width: 26px;
   height: 26px;
   display: block;
-  top: calc(50% - 13px);
-  left: calc(50% - 13px);
   position: absolute;
   overflow: visible;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Layer_1' x='0' y='0px' width='26px' height='26px' enable-background='new 0 0 1024 768' xml:space='preserve'%3E%3Ccircle fill='none' stroke='%23FF4136' stroke-miterlimit='10' cx='13px' cy='13px' r='12'/%3E%3C/svg%3E");
