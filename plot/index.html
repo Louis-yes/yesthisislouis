@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- 
+    TODO
+    
+    - Comment code :(
+    - Buy domain? plot.garden, $34 aud
+    - Redesign this page? Make it more usable, add instructions etc
+    - Add GOD mode? eg any emojis, change grid size
+
+    Possible functions 
+    - plot_to_csv
+    - plot_to_markdown
+    - txt_to_plot
+    - csv_to_plot
+
+     -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>plot your own little garden</title>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍🌾</text></svg>">
-    <script>
-    </script>
     <style>
         :root {
             --moss:      #aaccaa; 
@@ -25,10 +38,11 @@
             margin: 100px;
             display: grid;
             grid-template-columns: 55px 1fr;
-            grid-template-rows: 30px auto;
+            grid-template-rows: 30px auto 30px;
             grid-template-areas: 
                 "auto ACTIONS"
                 "TOOLS PLOT"
+                "FOOTER FOOTER"
             ;
         }
         #tools { 
@@ -110,6 +124,13 @@
             text-decoration: underline; 
         }
 
+        footer {
+            grid-area: FOOTER;
+            text-align:right;
+            font-style: italic;
+            color: var(--grassy);
+        }
+
     </style>
 </head>
 <body>
@@ -117,7 +138,8 @@
         <div id="actions"></div>
         <div id="tools"></div>
         <div id="plot" class="garden"></div>
-    </div>    
+        <footer><p>Made by <a href="https://yesthisislouis.com">Louis</a> for fun</p></footer>
+    </div>
 </body>
 <script>
     const state = {
@@ -293,21 +315,6 @@
             }).join("")+"\n";
         }).join("")
     }
-
     init();
-
-    // renderTools  x
-    // toolEvents   x
-
-    // renderPlot   x
-    // plotEvents   x 
-
-    // plot_to_html x
-    // plot_to_txt      
-    // plot_to_csv
-
-    // html_to_plot x
-    // txt_to_plot
-    // csv_to_plot
 </script>
 </html>
