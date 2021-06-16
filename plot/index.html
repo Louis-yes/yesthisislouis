@@ -60,10 +60,6 @@
             border: 1px solid #fff;
             width: 20px;
         }
-        #tools .tool:last-child label {
-            height: 18px;
-            border: 1px solid var(--green);
-        }
         #plot { 
             grid-area: PLOT; 
             border: 1px solid var(--green);
@@ -182,7 +178,8 @@
             style.id = "genStyle"
             document.head.append(style);
         }
-        style.innerHTML = `#plot table {cursor: ${emojiCursorCSS(emo)};}`;
+        let ee = emo == state.spacer? "✂️": emo;
+        style.innerHTML = `#plot table {cursor: ${emojiCursorCSS(ee)};}`;
     }
     
     function toolEvents(){
@@ -192,11 +189,12 @@
     }
     
     function renderTools () {
-        let toolList = emojis.map(emo => {
+        let toolList = emojis.map(ee => {
+            let emo = ee == state.spacer? "✂️": ee;
             return `
                 <span class="tool">    
                     <label for="${emo}">${emo}</label>
-                    <input type="radio" id="${emo}" name="selectedEmoji" value="${emo}">
+                    <input type="radio" id="${ee}" name="selectedEmoji" value="${ee}">
                 </span>
             `
         }).join("");
