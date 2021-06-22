@@ -1,5 +1,0 @@
-cp -R ../plot ../yesthisislouis/plot
-cd ../yesthisislouis
-git add plot/*
-git commit -m "do some gardening:added plot"
-git push

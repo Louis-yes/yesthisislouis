@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- 
     TODO
     
@@ -16,305 +16,491 @@
     - csv_to_plot
 
      -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>plot your own little garden</title>
-    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍🌾</text></svg>">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍🌾</text></svg>"
+    />
     <style>
-        :root {
-            --moss:      #aaccaa; 
-            --green:     #00d575;
-            --grassy:    #1a752b;
-            --lush:      #0e3e17;
-        }
-        body {
-            display: flex;
-        }
+      :root {
+        --moss: #aaccaa;
+        --green: #00d575;
+        --grassy: #1a752b;
+        --lush: #0e3e17;
+      }
+      body {
+        display: flex;
+      }
+      #app {
+        padding: 20px;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 12pt;
+      }
+      #tools {
+        grid-area: TOOLS;
+      }
+      #tools label,
+      #tools input {
+        cursor: pointer;
+      }
+      #tools .tool {
+        display: inline-block;
+        padding: 2px 0;
+      }
+      #tools label {
+        display: inline-block;
+        border: 1px solid #fff;
+        width: 20px;
+      }
+      #plot {
+        touch-action: none;
+        padding:5px;
+        width: 100%;
+        grid-area: PLOT;
+        margin: 20px 0;
+        border: 1px solid var(--green);
+      }
+      #plot.html {
+        font-size: 9pt;
+        color: var(--grassy);
+      }
+      #plot.html::selection {
+        background: var(--green);
+        color: var(--lush);
+      }
+      #plot.txt::selection {
+        /* background: var(--moss); */
+      }
+      #plot.garden {
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      #plot:not(.garden) {
+        overflow: auto;
+        white-space: pre-wrap;
+        font-family: monospace;
+      }
+      #plot table {
+        table-layout: fixed; 
+        width:100%;
+        border-collapse: collapse;
+        text-align: center;
+        cursor: pointer;
+      }
+      #plot td {
+        box-sizing: border-box;
+/*         display: inline-block; */
+      }
+      #plot td:hover {
+        box-shadow: inset 0 0 0 1px #000;
+      }
+
+      #actions {
+        grid-area: ACTIONS;
+        text-align: right;
+
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #actions .action {
+        padding: 18px;
+        border: 1px solid;
+        box-sizing: border-box;
+        border-radius: 5px;
+        color: var(--grassy);
+        font-style: italic;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      #actions .action:hover {
+        text-decoration: underline;
+      }
+
+      #actions .action.active {
+        text-decoration: underline;
+        
+        background: var(--green);
+        color: var(--lush);
+      }
+
+      footer {
+        grid-area: FOOTER;
+        text-align: right;
+        font-style: italic;
+        color: var(--grassy);
+      }
+
+      @media screen and (min-width: 600px) {
         #app {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 12pt;
-            margin: 100px;
-            display: grid;
-            grid-template-columns: 55px 1fr;
-            grid-template-rows: 30px auto 30px;
-            grid-template-areas: 
-                "auto ACTIONS"
-                "TOOLS PLOT"
-                "FOOTER FOOTER"
-            ;
+          margin: 20px 0 0 10%;
+          display: grid;
+          grid-template-columns: 55px 1fr;
+          grid-template-rows: 30px auto 30px;
+          grid-template-areas:
+            "auto ACTIONS"
+            "TOOLS PLOT"
+            "FOOTER FOOTER";
         }
-        #tools { 
-            grid-area: TOOLS; 
-        }
-        #tools label, #tools input {
-            cursor: pointer;
-        }
-        #tools .tool {
-            display: inline-block;
-            padding: 2px 0;
-        }
-        #tools label {
-            display: inline-block;
-            border: 1px solid #fff;
-            width: 20px;
-        }
-        #tools .tool:last-child label {
-            height: 18px;
-            border: 1px solid var(--green);
-        }
-        #plot { 
-            grid-area: PLOT; 
-            border: 1px solid var(--green);
-            width: fit-content;
-        }
-        #plot.html {
-            font-size: 9pt;
-            color: var(--grassy);
-        }
-        #plot.html::selection {
-            background: var(--green);
-            color: var(--lush);
-        }
-        #plot.txt::selection {
-            /* background: var(--moss); */
-        }
-        #plot:not(.garden){
-            overflow: auto;
-            white-space: pre-wrap;
-            font-family: monospace;
-        }
-        #plot table {
-            border-collapse: collapse;
-            text-align: center;
-            user-select: none;
-            cursor: pointer;
-        }
-        #plot td {
-            box-sizing: border-box;
-            height: 20px;
-            width: 20px;
-            line-height: 20px;
-            display: inline-block;
-        }
-        #plot td:hover {
-            box-shadow: inset 0 0 0 1px #000;
+
+        #plot {
+          margin: 0;
         }
 
         #actions {
-            grid-area: ACTIONS;
-            text-align: right;
-        } 
+          justify-content: flex-end;
+        }
 
         #actions .action {
-            color: var(--grassy);
-            font-style: italic;
-            display: inline-block;
-            margin-right: 10px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-       
-        #actions .action:hover { 
-            text-decoration: underline; 
+          display: inline-block;
+          padding: 0 12px;
+          border:none;
         }
 
-        #actions .action.active { 
-            text-decoration: underline; 
+        #actions .action.active {
+          background: none;
         }
 
-        footer {
-            grid-area: FOOTER;
-            text-align:right;
-            font-style: italic;
-            color: var(--grassy);
+        #plot {
+          width: 400px;
         }
-
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
-        <div id="actions"></div>
-        <div id="tools"></div>
-        <div id="plot" class="garden"></div>
-        <footer><p>Made by <a href="https://yesthisislouis.com">Louis</a> for fun</p></footer>
+      <div id="actions"></div>
+      <div id="plot" class="garden"></div>
+      <div id="tools"></div>
+      <footer>
+        <p>Made by <a href="https://yesthisislouis.com">Louis</a> for fun</p>
+      </footer>
     </div>
-</body>
-<script>
+  </body>
+  <script>
     const state = {
-        plot: [],
-        currentEmoji:   "🌱",
-        spacer:         " ",
-        h: 20,
-        w: 20
-    }
-    window.cursor = {isClicked: false};
-    document.addEventListener("mousedown", function(e){ window.cursor.isClicked = true });
-    document.addEventListener("mouseup", function(e){ window.cursor.isClicked = false });
+      plot: [],
+      currentEmoji: "🌱",
+      spacer: "&nbsp;",
+      h: 20,
+      w: 20
+    };
 
-    const emojis = ["🌲","🌳","🌵","🍀","🌿","🌱","🌴","🌹","🌷","🌼","🌻","🌸","🌺","🏵","🌾",state.spacer];
+    window.cursor = { 
+      isClicked: false,
+      activeTouch: false 
+    };
+    document.addEventListener("mousedown", function(e) {
+      window.cursor.isClicked = true;
+    });
+    document.addEventListener("mouseup", function(e) {
+      window.cursor.isClicked = false;
+    });
+    document.addEventListener("touchstart", function(e) {
+       window.cursor.activeTouch = true; 
+    });
+    document.addEventListener("touchend", function(e) {
+       window.cursor.activeTouch = false; 
+    });
+
+    const emojis = [
+      "🌲",
+      "🌳",
+      "🌵",
+      "🍀",
+      "🌿",
+      "🌱",
+      "🌴",
+      "🌹",
+      "🌷",
+      "🌼",
+      "🌻",
+      "🌸",
+      "🌺",
+      "🏵",
+      "🌾",
+      state.spacer
+    ];
     const tools = document.querySelector("#tools");
     const plot = document.querySelector("#plot");
     const actions = document.querySelector("#actions");
 
-    function init(){
-        toolEvents();
-        renderTools();
-        plotEvents();
-        renderActions();
-        actionEvents();
-        initialisePlot();
-        fillPlot(plot_to_html(state.plot));
-        plot.style = `width: ${plot.offsetWidth}px; height: ${plot.offsetHeight}px`;
+    function init() {
+      toolEvents();
+      renderTools();
+      plotEvents();
+      renderActions();
+      actionEvents();
+      initialisePlot();
+      fillPlot(plot_to_html(state.plot));
+      measurePlot();
     }
+
+    window.addEventListener("resize",debounce(function(e){
+      measurePlot();
+    }));
+
 
     // TOOL SETUP
     function emojiCursorCSS(emoji) {
-        return `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='27' height='32' viewport='0 0 100 100' style='fill:black;font-size:16px;'><text y='50%'>${emoji}</text></svg>") 10 10,auto; /*!emojicursor.app*/`;
+      return `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='27' height='32' viewport='0 0 100 100' style='fill:black;font-size:16px;'><text y='50%'>${emoji}</text></svg>") 10 10,auto; /*!emojicursor.app*/`;
     }
 
-    function setCurrentEmoji(emo){
-        state.currentEmoji = emo;
-        let style = document.querySelector("#genStyle");
-        if(!style){ 
-            style = document.createElement("style"); 
-            style.id = "genStyle"
-            document.head.append(style);
-        }
-        style.innerHTML = `#plot table {cursor: ${emojiCursorCSS(emo)};}`;
+    function setCurrentEmoji(emo) {
+      state.currentEmoji = emo;
+      let ee = emo == state.spacer ? "✂️" : emo;
+      customStyle(
+        "cursor-style",
+        `#plot table {cursor: ${emojiCursorCSS(ee)};}`
+      );
     }
-    
-    function toolEvents(){
-        tools.addEventListener("change", function(e){
-            setCurrentEmoji(e.target.value);
-        })
+
+    function toolEvents() {
+      tools.addEventListener("change", function(e) {
+        setCurrentEmoji(e.target.value);
+      });
     }
-    
-    function renderTools () {
-        let toolList = emojis.map(emo => {
-            return `
+
+    function renderTools() {
+      let toolList = emojis
+        .map(ee => {
+          let emo = ee == state.spacer ? "✂️" : ee;
+          return `
                 <span class="tool">    
                     <label for="${emo}">${emo}</label>
-                    <input type="radio" id="${emo}" name="selectedEmoji" value="${emo}">
+                    <input type="radio" id="${ee}" name="selectedEmoji" value="${ee}">
                 </span>
-            `
-        }).join("");
-        tools.innerHTML = toolList;
-        tools.querySelector("#🌱").click();
-    }
-
-    function placeEmoji(e){
-        const tt = e.target;
-        if(tt.tagName.toLowerCase() == "td"){
-            if(tt.innerHTML == state.currentEmoji){
-                if(e.type == "mousedown") {tt.innerHTML = state.spacer;}
-            } else {
-                tt.innerHTML = state.currentEmoji;
-            }
-            state.plot = html_to_plot(plot)
-        }
-    } 
-    // PLOT SETUP
-    function plotEvents () {
-        plot.addEventListener("mousedown", function(e){
-            placeEmoji(e);
-        });
-        plot.addEventListener("mouseover", function(e){
-            if(window.cursor.isClicked){
-                placeEmoji(e);
-            }
+            `;
         })
+        .join("");
+      tools.innerHTML = toolList;
+      tools.querySelector("#🌱").click();
     }
 
-    function initialisePlot (){
-        state.plot = [" , , , , , , , , , , , , , , , , , , , ", " , , , , , , , , , , , , , , , ,🌱,🌱, , ", " , , , , , , , , , , , , , , , ,🌱,🌱,🌱, ", " , , , , , , , , , , , , ,🌱,🌱,🌱,🌱,🌱,🌱,🌱", " , , , , , , , , , , ,🌱, , ,🌱,🌱,🌱,🌱,🌱,🌱", " , , , , , , , , , , ,🌱, ,🌱, ,🌱,🌱,🌱,🌱,🌱", " , , , , , , , , , , ,🌱,🌱, ,🌱,🌱,🌱,🌱,🌱,🌱", " , , , , , , , , , , , , , ,🌱,🌱,🌱,🌱,🌱,🌱", " , , , , , , , ,🌱, , , , , ,🌱,🌱,🌱,🌱,🌱,🌱", " , , , , , , , , , ,🌱, , ,🌱,🌱,🌱,🌱,🌱,🌱,🌱", " , , , ,🌱, , ,🌱,🌱, ,🌱,🌱, ,🌱,🌱,🌱,🌱,🌱,🌱,🌱", " , , ,🌱,🌱, , ,🌱, ,🌱,🌱,🌱,🌱,🌱, ,🌱,🌱,🌱,🌱,🌱", " , , ,🌱, , , , , ,🌱,🌱, ,🌱,🌱,🌱,🌱,🌱,🌱,🌱,🌱", " , , , , , , , ,🌱, , , ,🌱,🌱,🌱,🌱,🌱,🌱,🌱,🌱", " , , , , , , , , , , , , , ,🌱,🌱,🌱,🌱,🌱,🌱", " , , , , , , , , ,🌱,🌱,🌱,🌱,🌱, ,🌱,🌱,🌱,🌱,🌱", " , , , , , ,🌱,🌱,🌱, , , , ,🌱,🌱,🌱,🌱,🌱,🌱,🌱", " , , , , , , , , , , , , ,🌱,🌱,🌱,🌱,🌱,🌱,🌱", " , , , , , , , , , ,🌱,🌱,🌱, ,🌱,🌱,🌱,🌱,🌱,🌱", " , , , , , , , , ,🌱, ,🌱, , , , ,🌱,🌱,🌱,🌱"]
-        // for(var i = 0; i < state.h; i++){
-        //     let string = [];
-        //     for(var o = 0; o < state.w; o++){
-        //         string.push(state.spacer);
-        //     }
-        //     state.plot.push(string.join(","))
-        // }
-    } 
+    function placeEmoji(e) {
+      const tt = e.target;
+      if (tt && tt.tagName.toLowerCase() == "td") {
+        if (tt.innerHTML == state.currentEmoji) {
+          if (e.type == "mousedown") {
+            tt.innerHTML = state.spacer;
+          }
+        } else {
+          tt.innerHTML = state.currentEmoji;
+        }
+        state.plot = html_to_plot(plot);
+      }
+    }
+    // PLOT SETUP
+    function plotEvents() {
+      plot.addEventListener("mousedown", function(e) {
+        placeEmoji(e);
+      });
+      plot.addEventListener("touchmove", function(e) {
+        placeEmoji(e);
+      });
+      plot.addEventListener("mouseover", function(e) {
+        if (window.cursor.isClicked) {
+          placeEmoji(e);
+        }
+      });
+      plot.addEventListener("touchmove", function(e){
+        if(window.cursor.activeTouch){
+          // console.log(e);
+          var event = {
+            target: document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY), 
+            type: "touchmove",
+          }
+          placeEmoji(event);
+        }
+        })
 
-    function fillPlot (str){plot.innerHTML = str;}
-    function fillPlotText (str){plot.innerText = str;}
+    }
+
+    function initialisePlot() {
+      state.plot = [
+        " , , , , , , , , , , , , , , , , , , , ",
+        " , , , , , , , , , , , , , , , ,🌱,🌱, , ",
+        " , , , , , , , , , , , , , , , ,🌱,🌱,🌱, ",
+        " , , , , , , , , , , , , ,🌱,🌱,🌱,🌱,🌱,🌱,🌱",
+        " , , , , , , , , , , ,🌱, , ,🌱,🌱,🌱,🌱,🌱,🌱",
+        " , , , , , , , , , , ,🌱, ,🌱, ,🌱,🌱,🌱,🌱,🌱",
+        " , , , , , , , , , , ,🌱,🌱, ,🌱,🌱,🌱,🌱,🌱,🌱",
+        " , , , , , , , , , , , , , ,🌱,🌱,🌱,🌱,🌱,🌱",
+        " , , , , , , , ,🌱, , , , , ,🌱,🌱,🌱,🌱,🌱,🌱",
+        " , , , , , , , , , ,🌱, , ,🌱,🌱,🌱,🌱,🌱,🌱,🌱",
+        " , , , ,🌱, , ,🌱,🌱, ,🌱,🌱, ,🌱,🌱,🌱,🌱,🌱,🌱,🌱",
+        " , , ,🌱,🌱, , ,🌱, ,🌱,🌱,🌱,🌱,🌱, ,🌱,🌱,🌱,🌱,🌱",
+        " , , ,🌱, , , , , ,🌱,🌱, ,🌱,🌱,🌱,🌱,🌱,🌱,🌱,🌱",
+        " , , , , , , , ,🌱, , , ,🌱,🌱,🌱,🌱,🌱,🌱,🌱,🌱",
+        " , , , , , , , , , , , , , ,🌱,🌱,🌱,🌱,🌱,🌱",
+        " , , , , , , , , ,🌱,🌱,🌱,🌱,🌱, ,🌱,🌱,🌱,🌱,🌱",
+        " , , , , , ,🌱,🌱,🌱, , , , ,🌱,🌱,🌱,🌱,🌱,🌱,🌱",
+        " , , , , , , , , , , , , ,🌱,🌱,🌱,🌱,🌱,🌱,🌱",
+        " , , , , , , , , , ,🌱,🌱,🌱, ,🌱,🌱,🌱,🌱,🌱,🌱",
+        " , , , , , , , , ,🌱, ,🌱, , , , ,🌱,🌱,🌱,🌱"
+      ];
+    }
+
+    function measurePlot() {
+      // measure and match using w and h
+      let width = plot.offsetWidth / state.w;
+      let content = ``;
+      //       if(window.innerWidth < 600){
+      //       } else {
+      content = `
+            #plot td {
+              // width: ${width}px;
+              height: ${width}px;
+              // display: inline-block;
+            }
+          `;
+      //       }
+      let styleID = "plot-style";
+      customStyle("plot-style", content);
+
+    }
+
+    function fillPlot(str) {
+      plot.innerHTML = str;
+    }
+    function fillPlotText(str) {
+      plot.innerText = str;
+    }
 
     // ACTIONS SETUP
-    function renderToPlot(type){
-        plot.contentEditable = false;
-        plot.classList = type;
-        switch(type){
-            case "html":
-                fillPlotText(plot_to_html(state.plot));
-                break;
-            case "txt":
-                fillPlotText(plot_to_txt(state.plot));
-                plot.contentEditable = true;
-                plot.focus();
-                break;
-            case "garden":
-                fillPlot(plot_to_html(state.plot));
-                break;
-            case "clear":
-                actions.querySelector(".garden").click();
-                let lastEmoji = state.currentEmoji;
-                state.currentEmoji = state.spacer;
-                [...plot.querySelectorAll("td")].forEach(c => placeEmoji({target: c, type:null}));
-                state.currentEmoji = lastEmoji;
-                break;
-            default:
-                console.log("no functions for that yet hun xox");
+    function renderToPlot(type) {
+      plot.contentEditable = false;
+      plot.classList = type;
+      switch (type) {
+        case "html":
+          fillPlotText(plot_to_html(state.plot));
+          break;
+        case "txt":
+          fillPlotText(plot_to_txt(state.plot));
+          plot.contentEditable = true;
+          plot.focus();
+          break;
+        case "garden":
+          fillPlot(plot_to_html(state.plot));
+          break;
+        case "clear":
+          actions.querySelector(".garden").click();
+          let lastEmoji = state.currentEmoji;
+          state.currentEmoji = state.spacer;
+          [...plot.querySelectorAll("td")].forEach(c =>
+            placeEmoji({ target: c, type: null })
+          );
+          state.currentEmoji = lastEmoji;
+          break;
+        default:
+          console.log("no functions for that yet hun xox");
+      }
+    }
+
+    function renderActions() {
+      const accs = ["garden", "html", "txt", "clear"]; //,"markdown", "csv"]
+      actions.innerHTML = accs
+        .map(aa => {
+          return `<span class="action ${aa}">${aa}</span>`;
+        })
+        .join("");
+    }
+
+    function actionEvents() {
+      actions.addEventListener("click", function(e) {
+        if (e.target.classList.contains("action")) {
+          [...actions.children].forEach(action => {
+            action.classList.remove("active");
+          });
+          e.target.classList.add("active");
+          renderToPlot(e.target.innerText);
         }
-    }
-
-    function renderActions(){
-        const accs = ["garden","html","txt","clear"]//,"markdown", "csv"]
-        actions.innerHTML = accs.map(aa => {
-            return `<span class="action ${aa}">${aa}</span>`
-        }).join("");
-    }
-
-    function actionEvents(){
-        actions.addEventListener("click",function(e){
-            if(e.target.classList.contains("action")){
-                [...actions.children].forEach(action => {action.classList.remove('active')});
-                e.target.classList.add("active");
-                renderToPlot(e.target.innerText);
-            }
-        });
-        actions.querySelector(".garden").click();
+      });
+      actions.querySelector(".garden").click();
     }
 
     // CONVERTERS
-    function plot_to_html(arr){
-        return "<table id='plotTable' cellspacing='0' cellpadding='0'>" + arr.map(cc => {
-            return "<tr>" + cc.split(",").map(ccc => {
-                return `<td>${ccc}</td>`;
-            }).join("") + "</tr>";
-        }).join("") + "</table>";
+    function plot_to_html(arr) {
+      return (
+        "<table id='plotTable' cellspacing='0' cellpadding='0'>" +
+        arr
+          .map(cc => {
+            return (
+              "<tr>" +
+              cc
+                .split(",")
+                .map(ccc => {
+                  return `<td>${ccc}</td>`;
+                })
+                .join("") +
+              "</tr>"
+            );
+          })
+          .join("") +
+        "</table>"
+      );
+    }
+    
+    function html_to_plot(el) {
+      return [...el.querySelectorAll("#plotTable tr")].map(rr => {
+        return [...rr.querySelectorAll("td")]
+          .map(cc => {
+            return cc.innerHTML;
+          })
+          .join(",");
+      });
     }
 
-    function html_to_plot(el){
-        return [...el.querySelectorAll("#plotTable tr")].map(rr => {
-            return [...rr.querySelectorAll("td")].map(cc => {
-                return cc.innerHTML;
-            }).join(",");
-        })
-    }
-
-    function plot_to_txt(plot){
-        return plot.map(cc => {
-            return cc.split(",").map(ccc => {
-                if(ccc == state.spacer){
-                    return "  ";
+    function plot_to_txt(plot) {
+      return plot
+        .map(cc => {
+          return (
+            cc
+              .split(",")
+              .map(ccc => {
+                if (ccc == state.spacer) {
+                  return "  ";
                 } else {
-                    return ccc;
+                  return ccc;
                 }
-            }).join("")+"\n";
-        }).join("")
+              })
+              .join("") + "\n"
+          );
+        })
+        .join("");
     }
+
+    // utilities
+    function customStyle(id, content) {
+      let style = document.querySelector("#" + id);
+      if (!style) {
+        style = document.createElement("style");
+        style.id = id;
+        document.head.append(style);
+      }
+      style.innerHTML = content;
+      return style;
+    }
+    //debounce
+    function debounce(func) {
+      var timer;
+      return function(event) {
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(func,100,event);
+      };
+    }
+    
     init();
-</script>
+  </script>
 </html>
