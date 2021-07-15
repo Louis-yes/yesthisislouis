@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seeking resonance over distance</title>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+    <style>
+        /* Variables */
+        :root {
+            --menu-scale: 100;
+            --c1: #d63d44;
+        }
+        
+        /* Main */
+        ul { max-width: 450px; }
+        img { max-width: 100%; }
+        .no-scroll { overflow: hidden; }
+       
+        /* Menu */
+        #about {
+            position: fixed;
+            top: 0; right: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        #about-bg {
+            z-index: 0;
+            position: absolute;
+            top: 20px; right: 20px;
+            height: 20px; width: 20px;
+
+            border-radius: 50%;
+
+            background-color: var(--c1);
+
+            transform-origin: center;
+            transform: scale(1);
+            transition: transform .3s ease-out;
+        }
+        
+        #about-toggle {
+            z-index: 3;
+            position: absolute;
+            height: 40px; width: 40px;
+            top: 10px; right: 10px;
+
+            border-radius: 50%;
+            border: 5px solid var(--c1);
+
+            cursor: pointer;
+            pointer-events: auto;
+            
+            background-color: #fff;
+            opacity: 0;
+
+            transition: opacity .3s ease-out;
+        }
+        
+        #about-toggle:focus { outline: none; }
+
+        .keyboard #about-toggle:focus {
+            opacity: 1;
+            border: 1px dashed #000;
+            animation: spin 3s linear infinite;
+        }
+
+        #about-content {
+            z-index: 2;
+            position: absolute;
+            height: 100%; width: 100%;
+            left: 50%;
+            transform: translate(-50%,0);
+            overflow: auto;
+            pointer-events: none;
+
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.3em;
+            line-height: 1.5;
+
+            opacity: 0;
+            transition: opacity .1s;
+        }
+
+        #about-content > .wrapper {
+            padding: 2em;
+            margin: 0 auto;
+            max-width: 500px;
+        }
+
+        .open #about-content {
+            pointer-events: auto;
+            opacity: 1;
+            transition: opacity .3s .3s;
+        }
+        .open #about-toggle { opacity: 1; }
+        .open #about-bg { transform: scale(var(--menu-scale)); }
+
+        #references a {
+            color: #fff;
+        }
+        #references a:visited {
+            color: #fff;
+        }
+
+        #references sup {
+            line-height: 1.2;
+            display: inline-block;
+            margin: 10px 0;
+            opacity: .7;
+        }
+
+        @keyframes spin {
+            from { 
+                transform: rotate(0);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <ul class="list center pa0 mt0">
+        <li><img src="pages/01.jpg" alt=""></li>
+        <li><img src="pages/02.jpg" alt=""></li>
+        <li><img src="pages/03.jpg" alt=""></li>
+        <li><img src="pages/04.jpg" alt=""></li>
+        <li><img src="pages/05.jpg" alt=""></li>
+        <li><img src="pages/06.jpg" alt=""></li>
+        <li><img src="pages/07.jpg" alt=""></li>
+        <li><img src="pages/08.jpg" alt=""></li>
+    </ul>
+    <article id="about" class="absolute">
+        <div id="about-bg"  class="absolute bg-red br-50"></div>
+        <div id="about-content">
+            <div class="wrapper">
+                <p>
+                    <em>Seeking Resonance Over Distance</em> is an idea I couldn't get out of my head, and a felt tip pen homage to imagination, bright colours and televised media.
+                </p>
+                <p>
+                    Why do the teletubb*es have screens in their bellies? <br> From where do they receive the transmissions? <br> Who curates it? <br>To what end?<br> 
+                </p>
+                <p>
+                    Important questions. 
+                </p>
+                <label for="references">The media snippets featured are, in order of appearance:</label>
+                <ol id="references">
+                    <li>
+                        <a href="https://youtu.be/0pDE4VX_9Kk?t=1747">The final words of BBC's Ways of Seeing - Episode 1.</a>
+                        <sup>[Berger, J., Dibb, M., & BBC Enterprises. (1972). Ways of seeing. London: BBC Enterprises.]</sup>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/watch?v=1wVho3I0NtU">The spanish language commentary by Victor Hugo Morales on the famous 1986 "Goal of the Century" goal scored by Maradona against England</a>
+                        <sup>[Morales, V. (1986). Argentina v England (1986 FIFA World Cup), Estadio Azteca in Mexico City Quarter Final]</sup>
+                    </li>
+                </ol>    
+            </div>
+        </div>
+        <div id="about-toggle" tabindex="1" class="absolute bg-red br-50"></div>
+    </article>
+
+    <script>
+        function debounce(func, timeout = 300){
+            let timer;
+            return (...args) => {
+                clearTimeout(timer);
+                timer = setTimeout(() => { func.apply(this, args); }, timeout);
+            };
+        }
+    
+        function setupMenuAnimations(){
+            const aboutBg = document.querySelector("#about-bg");
+            const style = document.createElement("style");
+            
+            function biggest (w,h) { return w > h ? w : h; }
+
+            function setVariable (style) {
+                let w = window.innerWidth;
+                let h = window.innerHeight;
+                style.innerHTML = `
+                :root { --menu-scale: ${3 * (biggest(w,h) / aboutBg.clientWidth)} }`;
+            }
+
+            window.addEventListener("resize", () => { debounce(() => setVariable(style))});
+
+            setVariable(style);
+            document.head.appendChild(style);
+        }
+
+        function setupInteractions() {
+            const toggle = document.querySelector("#about-toggle")
+            toggle.addEventListener("click", toggleAbout);
+            toggle.addEventListener("keydown", (e) => {
+                if (e.keyCode == 13) toggleAbout();
+            })
+            window.addEventListener("keydown", () => {
+                document.body.classList.add("keyboard");
+            });
+            window.addEventListener("click", () => {
+                document.body.classList.remove("keyboard");
+            })
+        }
+
+        function toggleAbout(){
+            const about = document.querySelector("#about");
+            about.classList.toggle("open");
+            document.body.classList.toggle("no-scroll");
+        }
+
+        setupInteractions();
+        setupMenuAnimations();
+    </script>
+</body>
+</html>
