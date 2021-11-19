@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Don't Play Games</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		body, html {
+			padding: 0;
+			margin: 0;
+		}
+		.podcast {
+			box-sizing: border-box;
+			font-family: Arial, Helvetica, sans-serif;
+			width: 100%;
+			max-width: 700px;
+			margin: 0 auto;
+			height: 500px;
+			padding: 20px;
+			text-align: center;
+		}
+		.title {
+			margin-top: 20px;
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+
+			font-size: 2rem;
+			/* font-weight: bold; */
+		}
+		.left {
+			text-align: left;
+		}
+		.right {
+			text-align: right;
+		}
+		img {
+			width:100%;
+		}
+		audio {
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="podcast">
+		<img src="itsme2.jpg" alt="A chimpanzee playing a memory game on a screen">
+		<div class="title">
+			<div class="left">
+				Don't <br>
+				Play <br>
+				Games
+			</div>
+			<div class="right">
+				A Birthday <br>
+				Podcast <br>
+				for Giles
+			</div>
+		</div>
+		<audio controls>
+			<source src="horse.ogg" type="audio/ogg">
+			<source src="horse.mp3" type="audio/mpeg">
+			Your browser does not support the audio tag.
+		</audio>
+	</div>
+</body>
+</html>
