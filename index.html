@@ -1,29 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>yes</title>
   <meta property="og:title" content="Louis website">
-<meta property="og:site_name" content="Here it is">
-<meta property="og:url" content="yesthisislouis.com">
-<meta property="og:description" content="Louis lives in Ōtautahi ask him out for coffee on instagram he'll go I promise">
-<meta property="og:type" content="profile">
-<meta property="og:image" content="http://yesthisislouis.com/thethingitself.jpg">
+  <meta property="og:site_name" content="Here it is">
+  <meta property="og:url" content="yesthisislouis.com">
+  <meta property="og:description"
+    content="Louis lives in Naarm (Melbourne) ask him out for coffee on instagram he'll go I promise">
+  <meta property="og:type" content="profile">
+  <meta property="og:image" content="http://yesthisislouis.com/thethingitself.jpg">
 </head>
 <style>
-  body{
+  :root {
+    --width: 600px
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  body {
     text-align: center;
   }
-  img{
+
+  main {
+    display: inline-block;
     width: 100%;
-    max-width: 500px;
+    max-width: var(--width);
+    padding-bottom: 40px;
+  }
+
+  h1,
+  h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.6em;
+  }
+
+  h2 {
+    color: red;
+  }
+
+  img {
+    display: inline-block;
+    max-width: 400px;
+    width: 100%;
+  }
+  p {
+    font-family: sans-serif;
+    line-height: 1.5;
+    padding: 30px;
+    color: black;
+  }
+  table {
+    font-family: sans-serif;
+    line-height: 1.5;
+    width: 100%;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  a:visited {
+    color: inherit;
+  }
+
+  a:hover {
+    color: red;
+  }
+
+  th {
+    font-style: normal;
+    font-weight: normal;
+    color: red;
+  }
+
+  tr {
+    color: black;
+  }
+
+  tr:hover a {
+    color: red;
+    /* background-color: black; */
+  }
+
+  td,
+  thead {
+    text-align: left;
+  }
+
+  @media screen and (max-width: 600px) {
+    th {
+      display: none;
+    }
+
+    tr td {
+      display: none;
+    }
+
+    tr td:nth-child(1) {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    h2 {
+      display: none;
+    }
   }
 </style>
+
 <body>
-  <a href="https://www.instagram.com/experimentalbeachsports/">
+  <main>
     <img src="./thethingitself.jpg" alt="A selfie taken in a reflective pond">
-  </a>
+    <h1>Louis' <br> website</h1>
+
+    <!-- <p>
+      Louis is an artist based in Naarm (Melbourne, Aus) and raised in Ōtepoti, Aotearoa (Dunedin, NZ).
+      His heart lies in cartoons, websites and tools. You can see some selected projects below, or <a href="./yard">kick about in the yard.</a>
+    </p> -->
+
+    <h2>selected projects</h2>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>title</th>
+          <th>description</th>
+          <th>date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><a href="https://crayonemoji.art">Crayon</a></td>
+          <td>Emoji paint tool</td>
+          <td>2021</td>
+        </tr>
+        <tr class="even">
+          <td><a href="https://www.return.horse">return.horse</a></td>
+          <td>Cowboy core repetitive comic</td>
+          <td>2021</td>
+        </tr>
+        <tr class="odd">
+          <td><a href="./resonance">Seeking Resonance Over Distance</a></td>
+          <td>A teletubby fanfiction</td>
+          <td>2021</td>
+        </tr>
+        <!-- <tr class="even">
+          <td><a href="">conjugação</a></td>
+          <td>web scraping conjugacao.br.com</td>
+          <td>2021</td>
+        </tr> -->
+        <tr class="odd">
+          <td><a href="./erase">erase</a></td>
+          <td>Erasure poetry bookmarklet</td>
+          <td>2020</td>
+        </tr>
+        <tr class="even">
+          <td><a href="./godiamtired">God, I’m tired</a></td>
+          <td>Generative Bible fiction</td>
+          <td>2020</td>
+        </tr>
+        <tr class="odd">
+          <td><a href="./chain">chain</a></td>
+          <td>Links to things</td>
+          <td>2020</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
 </body>
+
 </html>
