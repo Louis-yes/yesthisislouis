@@ -1,0 +1,16 @@
+:root {
+    --grass: #3f8238;
+    --main: #fff;
+}
+
+body {  
+    padding: 20px;
+    font-family: sans-serif;
+    background-color: var(--grass);
+    color: var(--main);
+}
+
+a, a:visited { color: #fff; }
+.grass:hover, a:hover, body > p:hover {
+    font-style: italic;
+}
