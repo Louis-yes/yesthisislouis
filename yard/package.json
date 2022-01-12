@@ -1,0 +1,14 @@
+{
+  "name": "yard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build.js",
+  "scripts": {
+    "test": "build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "marked": "^4.0.9"
+  }
+}
