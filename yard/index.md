@@ -6,13 +6,13 @@ who cares
 
 <section class="lawn">
  
-[free at last - a bee epic](./finallybefree.html)
-[ask an orange](./wronganswer.html)
+[Heart of Bart residency](./heartofbart.html)
+[free at last - a bee epic](./finallybeefree/)
+<!-- [ask an orange](./wronganswer.html) -->
 [erase](../erase)
 [seeking resonance over distance](../resonance)
 [i'm tired](../godiamtired)
-[wow...more links!](../links)
-[Heart of Bart residency](./heartofbart.html)
+[wow...more links!](../chain)
 
 </section>
 

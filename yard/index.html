@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Louis Yard</title>
+    <link rel="stylesheet" href="tachyons.min.css" />
+    <link rel="stylesheet" href="yard.css" />
+</head>
+<body>
+    <p>Welcome to Louis&#39; yard!<br>stay as long as you like, relax<br>the weather&#39;s nice, there&#39;s a cool breeze, you&#39;re feeling peaceful<br>click about, or don&#39;t<br>who cares   </p>
+<section class="lawn">
+ 
+<p><a href="./finallybeefree/">free at last - a bee epic</a></p>
+<!-- [ask an orange](./wronganswer.html) -->
+<p><a href="../erase">erase</a>
+<a href="../resonance">seeking resonance over distance</a>
+<a href="../godiamtired">i&#39;m tired</a>
+<a href="../chain">wow...more links!</a>
+<a href="./heartofbart.html">Heart of Bart residency</a></p>
+</section>
+
+<script>
+    document.querySelectorAll('.lawn a').forEach((el) => {
+        el.after(aBladeOfGrass());
+        scatter(el);
+    })
+    function aBladeOfGrass(){
+        let grass = ["g","r","a","s","s",",,,","'''","...","*","~"]
+        let blade = document.createElement('p')
+        blade.className = "grass";
+        blade.innerHTML = grass[Math.floor(Math.random()*grass.length)]
+        scatter(blade);
+        return blade    
+    }
+    function scatter(el){
+        el.style.display = "table";
+        el.style.width = "auto";
+        el.style.position = "relative";
+        el.style.left = (Math.random() * (100 - ((el.clientWidth / window.innerWidth)*100))) + "%";
+    }
+</script>
+</body>
+</html>

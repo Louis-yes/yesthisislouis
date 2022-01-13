@@ -7,10 +7,13 @@ body {
     padding: 20px;
     font-family: sans-serif;
     background-color: var(--grass);
+    line-height: 1.5;
     color: var(--main);
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:white;font-size:16px;font-family:sans-serif;'><text y='20%' x='20%'>:-)</text></svg>") 16 0,auto; /*!emojicursor.app*/
 }
 
 a, a:visited { color: #fff; }
 .grass:hover, a:hover, body > p:hover {
     font-style: italic;
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:white;font-size:16px;font-family:sans-serif;'><text y='20%' x='20%'>;-)</text></svg>") 16 0,auto; /*!emojicursor.app*/
 }
