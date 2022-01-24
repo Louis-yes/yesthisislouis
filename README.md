@@ -1,3 +1,2 @@
 # My personal website, eternally in progress
----
-# I'm trying to treat it as a learning environment, and a teaching environment
+A place to rest, a brief lull between sets while you surf the web

@@ -1,0 +1,29 @@
+:root {
+    --grass: #3f8238;
+    --main: #fff;
+    --dark: #002;
+}
+
+body {
+    padding: 20px 20px 40px;
+    max-width: 800px;
+    font-family: sans-serif;
+    line-height: 1.5;
+    background-color: var(--main);
+    color: var(--dark);
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:%233f8238;font-size:16px;font-family:sans-serif;'><text y='20%' x='20%'>:-)</text></svg>") 16 0,auto; /*!emojicursor.app*/
+}
+
+h1 { margin-bottom: 2em; }
+
+a { color: var(--grass); }
+
+a:hover {
+    color: var(--grass);
+    font-style: italic;
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:%233f8238;font-size:16px;font-family:sans-serif;'><text y='20%' x='20%'>;-)</text></svg>") 16 0,auto; /*!emojicursor.app*/
+}
+
+@media screen and (min-width:400px) {
+    body { padding: 50px 50px 100px; }
+}
