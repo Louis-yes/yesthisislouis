@@ -13,7 +13,9 @@ who cares
 [seeking resonance over distance](../resonance)
 [i'm tired](../godiamtired)
 [wow...more links!](../chain)
+[smells](./smelly.txt)  
 
+[cool video about making a slingshot (not mine)](https://www.youtube.com/watch?v=PmHSQPWHvfU)
 </section>
 
 <script>
