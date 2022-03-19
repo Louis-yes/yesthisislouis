@@ -14,6 +14,7 @@ who cares
 [i'm tired](../godiamtired)
 [wow...more links!](../chain)
 [smells](./smelly.txt)  
+[2022 zinefest](festivalofthephotocopier2022)  
 
 [cool video about making a slingshot (not mine)](https://www.youtube.com/watch?v=PmHSQPWHvfU)
 </section>
