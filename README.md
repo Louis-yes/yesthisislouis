@@ -1,5 +1,5 @@
-# My personal special individual website
+# My personal, special, professional, individual website
 What's up  
 nice to see you  
-<video src="thethingitself.mp4" />
+![](thethingitself.gif)
 peace ✌️
