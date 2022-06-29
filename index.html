@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,171 +15,76 @@
 </head>
 <style>
   :root {
-    --width: 600px
+    --width: 800px
   }
 
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
 
-  body,
-  html {
+  body, html {
     margin: 0;
     padding: 0;
     width: 100%;
-  }
-
-  body {
-    text-align: center;
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:%23000000;font-size:16px;font-family:sans-serif;'><text y='20%' x='20%'>:-)</text></svg>") 16 0,auto; /*!emojicursor.app*/
   }
 
   main {
     display: inline-block;
     width: 100%;
     max-width: var(--width);
-    padding-bottom: 40px;
+    padding: 10px 20px 40px;
   }
 
-  h1,
-  h2 {
-    font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
+  h1, h2 {
     font-weight: 300;
     font-size: 1.6em;
   }
 
-  h2 {
-    color: red;
-  }
-
-  img {
-    display: inline-block;
-    max-width: 400px;
-    width: 100%;
-  }
   p {
     font-family: sans-serif;
     line-height: 1.5;
-    padding: 30px;
     color: black;
   }
-  table {
-    font-family: sans-serif;
-    line-height: 1.5;
+
+  a { color: inherit; }
+  a:visited { color: inherit; }
+  a:hover { color: red; }
+
+  img {
     width: 100%;
+    max-width: 300px;
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:%23ffffff;font-size:16px;font-family:sans-serif;'><text y='20%' x='20%'>:-)</text></svg>") 16 0,auto; /*!emojicursor.app*/
   }
 
-  a {
-    color: inherit;
-  }
-
-  a:visited {
-    color: inherit;
-  }
-
-  a:hover {
-    color: red;
-  }
-
-  th {
-    font-style: normal;
-    font-weight: normal;
-    color: red;
-  }
-
-  tr {
-    color: black;
-  }
-
-  tr:hover a {
-    color: red;
-    /* background-color: black; */
-  }
-
-  td,
-  thead {
-    text-align: left;
-  }
-
-  @media screen and (max-width: 600px) {
-    th {
-      display: none;
-    }
-
-    tr td {
-      display: none;
-    }
-
-    tr td:nth-child(1) {
-      display: block;
-      text-align: center;
-    }
-  }
-
-  @media screen and (min-width: 600px) {
-    h2 {
-      display: none;
+  @media screen and (min-width: 500px){
+    main {
+      padding: 20px 40px;
     }
   }
 </style>
 
 <body>
   <main>
-    <img src="./thethingitself.jpg" alt="A selfie taken in a reflective pond">
-    <h1>Louis' <br> website</h1>
-
+    <h1>Louis Graham</h1> 
+    <img src="thethingitself.jpg" alt="a murky and wobbly reflection of Louis in a pond" >
     <p>
-      Louis is an artist based in Naarm (Melbourne, Aus) and raised in Ōtepoti, Aotearoa (Dunedin, NZ).
-      His heart lies in cartoons, websites and tools. You can see some selected projects below, or <a href="./yard">kick about in the yard.</a>
+      Currently living in Naarm/Melbourne, Australia. </br> 
+      From Ōtepoti/Dunedin, Aotearoa/New Zealand. </br>
+    </p>
+    <p>
+      🏇🏇🏇🏇
+    </p>
+    <p>
+     This is what I'm currently working on:
+     <a href="https://www.return.horse"> ↗︎return.horse </a> - a cowboy-core repetitive web comic.
+    </p>
+    <p>
+      I'm not looking for work at the moment.
+    </p>
+    <p>
+      contact me at:  
+      &#x65;&#109;&#97;&#x69;&#x6c;&#46;&#x6c;&#x6f;&#x75;&#x69;&#115;&#x2e;&#103;&#x72;&#97;&#x68;&#97;&#109;&#64;&#103;&#109;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;
     </p>
 
-    <h2>selected projects</h2>
-    <table>
-      <thead>
-        <tr class="header">
-          <th>title</th>
-          <th>description</th>
-          <th>date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="odd">
-          <td><a href="https://crayonemoji.art">Crayon</a></td>
-          <td>Emoji paint tool</td>
-          <td>2021</td>
-        </tr>
-        <tr class="even">
-          <td><a href="https://www.return.horse">return.horse</a></td>
-          <td>Cowboy core repetitive comic</td>
-          <td>2021</td>
-        </tr>
-        <tr class="odd">
-          <td><a href="./resonance">Seeking Resonance Over Distance</a></td>
-          <td>A teletubby fanfiction</td>
-          <td>2021</td>
-        </tr>
-        <!-- <tr class="even">
-          <td><a href="">conjugação</a></td>
-          <td>web scraping conjugacao.br.com</td>
-          <td>2021</td>
-        </tr> -->
-        <tr class="odd">
-          <td><a href="./erase">erase</a></td>
-          <td>Erasure poetry bookmarklet</td>
-          <td>2020</td>
-        </tr>
-        <tr class="even">
-          <td><a href="./godiamtired">God, I’m tired</a></td>
-          <td>Generative Bible fiction</td>
-          <td>2020</td>
-        </tr>
-        <tr class="odd">
-          <td><a href="./chain">chain</a></td>
-          <td>Links to things</td>
-          <td>2020</td>
-        </tr>
-      </tbody>
-    </table>
   </main>
 </body>
 
