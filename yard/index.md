@@ -14,6 +14,7 @@ who cares
 [wow...more links!](../chain)  
 <!-- [ask an orange](./wronganswer.html) -->
 
+[cool video about making a slingshot (not mine)](https://www.youtube.com/watch?v=PmHSQPWHvfU)
 </section>
 
 <script>

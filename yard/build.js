@@ -2,6 +2,7 @@ const { marked } = require("marked")
 const fs = require("fs");
 
 const mds = fs.readdirSync('.').filter(ff => ff.includes(".md"));
+
 mds.forEach(ff => {
     if(ff === "index.md"){
         makeindex();
