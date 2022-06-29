@@ -1,2 +1,5 @@
-# My personal website, eternally in progress
-A place to rest, a brief lull between sets while you surf the web
+# My personal special individual website
+What's up  
+nice to see you  
+<video src="thethingitself.mp4" />
+peace ✌️
