@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarklets</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            padding: 20px;
+            background-color: black;
+            font-family: sans-serif;
+            color: #4199ff;
+            font-size: 16px;
+        }
+
+        body {
+            max-width: 500px;
+        }
+
+        .bookmarklet {
+            display: inline-block;
+            padding: 5px;
+            border-radius: 2px;
+            background-color: white;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        To install a bookmarklet drag the link into the bookmark bar.
+    </h1>
+    <p>
+        This one removes the twitter login block that pops up when you're scrolling someone's page and you're not logged in.
+    </p>
+    <a class="bookmarklet" href="javascript:(function removeTwitterLoginBlocker(){document.querySelector('[role=group]'').remove(); document.querySelector('html').style.overflow = 'auto';})()">
+        let me use twitter
+    </a>
+    <p>
+        here's the code, formatted:
+    </p>
+<pre><code>
+(function removeTwitterLoginBlocker(){
+    document.querySelector('[role=group]'').remove(); 
+    document.querySelector('html').style.overflow = 'auto';
+})()
+</code></pre>
+</body>
+</html>
