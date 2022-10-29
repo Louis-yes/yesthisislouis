@@ -10,6 +10,9 @@ margin: 0;
 padding: 0;
 width: 100%;
 cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:%23000000;font-size:16px;font-family:sans-serif;'><text y='20%' x='20%'>:-)</text></svg>") 16 0,auto; /*!emojicursor.app*/
+font-family: sans-serif;
+line-height: 1.5;
+color: black;
 }
 
 body {
@@ -27,18 +30,6 @@ h2 {
 font-weight: 300;
 font-size: 1.6em;
 }
-
-p {
-font-family: sans-serif;
-line-height: 1.5;
-color: black;
-}
-
-a { color: inherit; }
-
-a:visited { color: inherit; }
-
-.yard
 
 a:hover { 
     color: red;  

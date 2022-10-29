@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,53 +9,65 @@
     <link rel="stylesheet" href="tachyons.min.css" />
     <link rel="stylesheet" href="yard.css" />
 </head>
+
 <body>
-    <p>Welcome to Louis&#39; yard!<br>stay as long as you like, relax<br>the weather&#39;s nice, there&#39;s a cool breeze, you&#39;re feeling peaceful<br>click about, or don&#39;t<br>who cares   </p>
-<section class="lawn">
- 
-<p><a href="./heartofbart.html">Heart of Bart residency</a><br><a href="./finallybeefree/">free at last - a bee epic</a><br><a href="../erase">erase</a><br><a href="../resonance">seeking resonance over distance</a><br><a href="../godiamtired">i&#39;m tired</a><br><a href="../chain">wow...more links!</a>  </p>
-<!-- [ask an orange](./wronganswer.html) -->
-</section>
+    <main>
+        <p>
+            Welcome to Louis' yard.
+            You can follow 
+            <a href="www.instagram.com/speachborts">@speachborts</a> on instagram for some cartoons,
+            <a href="www.instagram.com/return.horse">@return.horse</a> for one joke told over and over and over, and 
+            <a href="www.instagram.com/experimentalbeachsports">@experimentalbeachsports</a> to make friends. 
+        </p>
+        <p>
+            If you don't have instagram (bless you) I'm also on <a href="https://www.are.na/louis-g">are.na</a> and <a href="https://github.com/Louis-yes">github</a>
+        </p>
+        <p>
+            If none of that sounds appealling, you can bookmark this page and return to it occasionally, for updates or to relax.
+            Last update was made on 2022-10-30, in preparation for <a href="https://hallozeen.rip/">Hallozeen 2022</a>.
+        </p>
+        <img src="https://d2w9rnfcy7mm78.cloudfront.net/11209135/original_94231fba9b068f23d9396e27723b4810.png?1615955866?bc=0" alt="a bad drawing of the red tellytubby">
+    </main>
+    <script>
+        document.querySelectorAll('.lawn a').forEach((el) => {
+            el.after(aBladeOfGrass());
+            scatter(el);
+        })
 
-<script>
-    document.querySelectorAll('.lawn a').forEach((el) => {
-        // el.after(aBladeOfGrass());
-        // scatter(el);
-    })
+        // blowWind();
 
-    // blowWind();
+        function blowWind() {
+            document.querySelectorAll('.lawn a').forEach((el, i) => {
+                blow(el, i);
+            })
+            document.querySelectorAll('.lawn p').forEach((el, i) => {
+                blow(el, i);
+            })
+            window.requestAnimationFrame(function () {
+                blowWind();
+            })
+        }
+        function aBladeOfGrass() {
+            // let grass = ["g","r","a","s","s",",,,","'''","...","*","~"]
+            let grass = ["🌱", "🌷"]
+            let blade = document.createElement('p')
+            blade.className = "grass";
+            blade.innerHTML = grass[Math.floor(Math.random() * grass.length)]
+            scatter(blade);
+            return blade
+        }
+        function scatter(el) {
+            el.style.display = "table";
+            el.style.width = "auto";
+            el.style.position = "relative";
+            el.style.left = (Math.random() * (100 - ((el.clientWidth / window.innerWidth) * 100))) + "%";
+        }
+        function blow(el, i) {
+            const delta = new Date().getTime();
+            el.style.transform = "translateX(" + Math.sin(delta / 3000 + i) * 20 + "px)";
+        }
 
-    // function blowWind(){
-    //     document.querySelectorAll('.lawn a').forEach((el,i) => {
-    //         blow(el,i);
-    //     })  
-    //     document.querySelectorAll('.lawn p').forEach((el,i) => {
-    //         blow(el,i);
-    //     })
-    //     window.requestAnimationFrame(function(){
-    //         blowWind();
-    //     })
-    // }
-    function aBladeOfGrass(){
-        // let grass = ["g","r","a","s","s",",,,","'''","...","*","~"]
-        let grass = ["🌱","🌷"]
-        let blade = document.createElement('p')
-        blade.className = "grass";
-        blade.innerHTML = grass[Math.floor(Math.random()*grass.length)]
-        scatter(blade);
-        return blade    
-    }
-    function scatter(el){
-        el.style.display = "table";
-        el.style.width = "auto";
-        el.style.position = "relative";
-        el.style.left = (Math.random() * (100 - ((el.clientWidth / window.innerWidth)*100))) + "%";
-    }
-    function blow(el, i){
-        const delta = new Date().getTime();
-        el.style.transform = "translateX("+ Math.sin(delta/3000 + i)*20 + "px)";
-    }
-
-</script>
+    </script>
 </body>
+
 </html>
