@@ -4,125 +4,207 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Don't Play Games</title>
+	<title>Don't talk about</title>
 	<style>
 		* {
 			box-sizing: border-box;
 		}
-		body, html {
-			padding: 0;
-			margin: 0;
-		}
-		.podcast {
-			box-sizing: border-box;
-			font-family: Arial, Helvetica, sans-serif;
-			width: 100%;
-			max-width: 700px;
-			margin: 0 auto;
-			height: 500px;
-			padding: 20px;
-			/* text-align: center; */
-		}
-		.title {
-			margin-top: 20px;
-			display: flex;
-			justify-content: space-between;
-			width: 100%;
 
-			font-size: 2rem;
-		}
-		.left {
-			text-align: left;
-		}
-		.right {
-			text-align: right;
-		}
-		img {
-			width:100%;
-		}
-		audio {
-			margin-top: 20px;
-		}
-		.message {
-			display: inline-block;
-			margin: 30px 0 50px;
+		body {
+			background-color: #111;
+			color: #fff;
+			font-family: 'Courier New', Courier, monospace;
+			font-size: 16px;
 			line-height: 1.5;
 		}
-		.warning {
-			color: tomato;
-			font-style: italic;
-			margin-bottom: 10px;
-			display: inline-block;
+
+		.tap {
+			color: #111;
+			white-space: pre;
+			transition: color 1s ease-in-out;
+			line-height: 1;
 		}
-		blockquote {
-			font-style: italic;
-			display: inline-block;
-			padding: 0 0 0 20px;
+		.audio-ready .tap {
+			color: #fff;
 		}
+
+		main {
+			padding: 50px;
+		}
+
+		.message {
+			max-width: 700px;
+			width: 100%;
+		}
+		.hero {
+			width:100%;
+			max-width: 800px;
+			height: 320px;
+			margin-bottom: 50px;
+			padding:0;
+		}
+		.b1, .b2, .b3, .b4{
+			width: 100%;
+			height: 250px;
+		}
+		@media screen and (min-width: 1000px){
+				.tap:not(.hero){
+					position: fixed;
+				}
+
+				.b1 {
+					width: 200px;
+					height: 200px;
+					top: 200px;
+					right: calc(30% - 100px);
+				}
+				
+				.b2 {
+					width: 150px;
+					height: 150px;
+					right: calc(30% - 280px);
+					top: 140px;
+				}
+
+				.b3 {
+					width: 150px;
+					height: 400px;
+					right: calc(30% - 320px);
+					top: 300px;
+				}
+
+				.b4 {
+					width: 200px;
+					height: 250px;
+					right: calc(30% - 150px);
+					top: 420px;
+				}
+
+				a { color: red; }
+		}
+
 	</style>
+	<link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
 </head>
 <body>
-	<div class="podcast">
-		<img src="myboy.jpeg" alt="A chimpanzee playing a memory game on a screen">
-		<div class="title">
-			<div class="left">
-				Don't <br>
-				Play <br>
-				Games
-			</div>
-			<div class="right">
-				A Birthday <br>
-				Podcast <br>
-				for Giles
-			</div>
-		</div>
-		<audio controls>
-			<source src="dontplaygames_ep_1_verysmall.mp3" type="audio/mpeg">
-			Your browser does not support the audio tag.
-		</audio>
-		<div class="message">
-			<div class="warning">
-				warning - from 13:49 - 17:12 is a clip of Yoko Ono yelling and screaming
-			</div>
-			<br>
-			<p>
-				Happy Birthday Giles. <br>
-				Congratulations on your many successes. <br>
-				If we allow even one success a year (and surely 
-				there are years of excess) we have a heaping 28, and many more to come.
-			</p>
-			<p>
-				I miss you dearly, our regular phone calls and 
-				jams this year have sustained me through a time of 
-				grim loneliness and restriction. Our lives continue to 
-				grow further apart, one would scarcely recognise the other, 
-				but our hearts and desires seem to grow closer. I learn so much
-				about myself, from talking to you. You inspire me.
-				Making this episode was a joy, and I'm very excited to hear what you and 
-				Campbell came up with. I hope you enjoy listening, or at very least enjoy the intro tune. 
-			</p>
-			<p>
-				What else? I still remember the christmas you sent me photocopied poetry, and how good a gift it made.
-				Curation is valuable, and costly, but it rewards both ways. So here's some stocking stuffers, from what I've been reading lately
-			</p>
+<main>
+	<div class="tap hero" name="hero"></div>
+	<audio class="podcast" src="donttalkveryverysmall.mp3" controls></audio>
+	<section class="message">
+		<p>### Happy Birthday Brother. ###</p>
+		<p class="text">
+			I <i>can</i> believe it has been a year since we last made these, so much has happened between then and now. 
+			I'm sorry we haven't seen each other more often, but you probably more than most understand
+			why I'm so far away and what vague dreams I'm chasing. Making this podcast is special because it
+			really captures a lot of the spirit of those dreams, as well as pulling them into the warm light of day. 
+		</p>	
+		<div class="tap b1"></div>
+		<p>
+			Of course this isn't about me, except that the nature of this gift is to bring forth what is within me, for you.
+		</p>
+		<div class="tap b2"></div>		
+		<p>
+			You have a had a huge year, and I'm extremely proud of all you've achieved. 
+			Our calls have not been as frequent, because some of what you've achieved is alive and demanding. 
+			This is true in part for many things we make, but true in entirety for Fenn and Alistair.
+		</p>
+		<div class="tap b3"></div>
+		<p>
+			This episode was a joy, once again, to make. What a great gift, a gift that gives to all. 
+			I was going to wax lyrical about how much you inspire me, but I've read last year's birthday card and it looks like I've covered that.
+			Not much has changed, but my admiration and gratitude have grown. 
+			Thank you so much for your support, encouragement, and care. 
+		</p>
+		<p>
+			
+			And now, for my favourite part of the birthday message - Other people's writing!
+		</p>
+		<p>
+			This one was picked, almost at random, from a book I'm reading at the moment. 
+			Lorca's poems are all pretty grim, but refreshing, perhaps, for being less contemporary and more foreign.
+		</p>
+		<style>
+			ol.poem li { list-style-type: none;}
+			ol.poem li:hover { list-style-type: auto;}
+		</style>
+		<p><em> After a Walk <br>
+		by Federico García Lorca<br>
+		translated by Greg Simon and Steven F. White</em></p>
+		<ol class="poem">
+			<li>Cut down by the sky.</li>
+			<li>Between shapes moving toward the serpent</li>
+			<li>and crystal-craving-shapes,</li>
+			<li>I'll let my hair grow.</li>
+		</ol>
+		<ol class="poem" start="5">
+			<li>With the amputated tree that doesn't sing</li>
+			<li>and the child with the blank face of an egg.</li>
+		</ol>
+		<ol class="poem" start="7">
+			<li>With the little animals whose skulls are cracked</li>
+			<li>and the water, dressed in rags but with dry feet.</li>
+		</ol>
+		<ol class="poem" start="9">
+			<li>With all the bone-tired, deaf-and-dumb things</li>
+			<li>and a butterfly drowned in the inkwell</li>
+		</ol>
+		<ol class="poem" start="11">
+			<li>Bumping into my own face, different each day.</li>
+			<li>Cut down by the sky!</li>
+		</ol>
+		
+		<p>This next one is from a book I bought earlier this year, <em>Petal</em> by <em>Chelsea Hart</em></p>
+		<p>
+			Chelsea is a friend of a friend, and this is her debut book. This part talks about gardening, 
+			which I know occupies a growing part of your life now that you're a landowner.
+		</p>
+		<ol class="poem">
+			<li>Weeds are just </li>
+			<li>misunderstood</li>
+			<li>you told me</li>
+			<li>defensively</li>
+			<li><br></li>
+			<li>Making room for dandelions.</li>
+			<li><br></li>
 
-			<p>
-				<blockquote>
-					When you’re losing a game you don’t even want to play, or forcing a fit into a form you don’t want to be in, the best thing to do is to stop playing and go find your shape. “If we accept ourselves and each other as form-makers,” wrote American philosopher Eugene Gendlin, “we will no longer need to force forms on ourselves or each other.” - <a href="https://thecreativeindependent.com/essays/a-soft-manifesto/">A soft manifesto</a>
-				</blockquote>
-				<br>
-				<br>
-
-				<blockquote>
-					Now one appreciate Saint Paul‘s incisive word choice...seen through glass darkly not a metaphor, but astute reference to optical distortion. We really do see astigmatically, in fundamental sense: our space and our time creations of our own psyche, and when these momentarily falter – like acute disturbances of middle ear.
-					- <a href="https://www.goodreads.com/book/show/216363.The_Man_in_the_High_Castle">The Man in the High Castle</a> 
-				</blockquote>
-			</p>
-			<p>
-				Lots of love <br>
-				Louis
-			</p>
-		</div>
-	</div>
+			<li>Because they are seen as purposeless</li>
+			<li>doesn't mean they have no purpose.</li>
+			<li><br></li>
+			<li>It was just</li>
+			<li>'a plant in the wrong place'</li>
+			<li><br></li>
+			<li>of what?</li>
+			<li><br></li>
+			<li>your garden?</li>
+			<li><br></li>
+			<li>it was never yours anyway.</li>
+		</ol>
+		//
+			<p><em>(Louis' note: I skipped a couple of stanzas here)</em></p>
+		//
+		<ol class="poem">
+			<li>Something that grows</li>
+			<li>outwards</li>
+			<li>not upwards</li>
+			<li><br></li>
+			<li>is a story we dont talk about</li>
+			<li>when we talk about growing.</li>
+		</ol>
+		//
+		<ol class="poem">
+			<li>You drew a rhizome for me once</li>
+			<li>I was reading Deleuze.</li>
+			<li><br></li>
+			<li>You said:</li>
+			<li><br></li>
+			<li>'You don't need to read a book</li>
+			<li>this big</li>
+			<li>with all these words </li>
+			<li>to know that things grow outwards and upwards.'</li>
+		</ol>
+		<div class="tap b4"></div>	
+	</section>
+</main>
+<script src="./birthdayscripts.js"> </script>
 </body>
 </html>
