@@ -1,0 +1,42 @@
+:root {
+  --pink: #ffa3d7;
+  --white: #fff;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 50px;
+  background-color: var(--pink);
+  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;;
+
+  color: #111;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+main { max-width: 600px; }
+
+blockquote {
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-left: 1px solid;
+  padding-left: 20px;
+  margin-left: 10px;
+}
+a, a:visited { color: #000; }
+a:hover { color: var(--white); }
+
+h1 {
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: .875rem;
+}
+
+h2 {
+  font-size: 3rem;
+  font-family: serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+audio::-webkit-media-controls-panel  { background-color: var(--pink); }
