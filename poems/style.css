@@ -1,0 +1,27 @@
+ol[data-type=poem] {padding: 0;}
+ol[data-type=poem] li { 
+    list-style-type: none;
+    text-indent: -1em;
+    padding-left: 1em;
+}
+ol[data-type=poem] li:hover { list-style-type: auto; }
+ol[data-type=poem] li:empty { height: 1em; display: block; }
+
+body {
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+    font-family: sans-serif;
+    line-height: 1.5;
+    padding: 10px 20px 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: sans-serif;
+    font-weight: 400;
+}
+
+h1 { font-family: serif; font-size: 1.6em; }
+h2, h3, h4 { font-size: 1em;}
+
+a {
+    color: black;
+}
