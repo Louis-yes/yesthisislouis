@@ -1,210 +1,223 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Don't talk about</title>
-	<style>
-		* {
-			box-sizing: border-box;
-		}
-
-		body {
-			background-color: #111;
-			color: #fff;
-			font-family: 'Courier New', Courier, monospace;
-			font-size: 16px;
-			line-height: 1.5;
-		}
-
-		.tap {
-			color: #111;
-			white-space: pre;
-			transition: color 1s ease-in-out;
-			line-height: 1;
-		}
-		.audio-ready .tap {
-			color: #fff;
-		}
-
-		main {
-			padding: 50px;
-		}
-
-		.message {
-			max-width: 700px;
-			width: 100%;
-		}
-		.hero {
-			width:100%;
-			max-width: 800px;
-			height: 320px;
-			margin-bottom: 50px;
-			padding:0;
-		}
-		.b1, .b2, .b3, .b4{
-			width: 100%;
-			height: 250px;
-		}
-		@media screen and (min-width: 1000px){
-				.tap:not(.hero){
-					position: fixed;
-				}
-
-				.b1 {
-					width: 200px;
-					height: 200px;
-					top: 200px;
-					right: calc(30% - 100px);
-				}
-				
-				.b2 {
-					width: 150px;
-					height: 150px;
-					right: calc(30% - 280px);
-					top: 140px;
-				}
-
-				.b3 {
-					width: 150px;
-					height: 400px;
-					right: calc(30% - 320px);
-					top: 300px;
-				}
-
-				.b4 {
-					width: 200px;
-					height: 250px;
-					right: calc(30% - 150px);
-					top: 420px;
-				}
-
-				a { color: red; }
-		}
-
-	</style>
-	<link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
-</head>
-<body>
-<main>
-	<div class="tap hero" name="hero"></div>
-	<audio class="podcast" controls></audio>
-	<section class="message">
-		<p>### Happy Birthday Brother. ###</p>
-		<p class="text">
-			I <i>can</i> believe it has been a year since we last made these, so much has happened between then and now. 
-			I'm sorry we haven't seen each other more often, but you probably more than most understand
-			why I'm so far away and what vague dreams I'm chasing. Making this podcast is special because it
-			really captures a lot of the spirit of those dreams, as well as pulling them into the warm light of day. 
-		</p>	
-		<div class="tap b1"></div>
-		<p>
-			Of course this isn't about me, except that the nature of this gift is to bring forth what is within me, for you.
-		</p>
-		<div class="tap b2"></div>		
-		<p>
-			You have a had a huge year, and I'm extremely proud of all you've achieved. 
-			Our calls have not been as frequent, because some of what you've achieved is alive and demanding. 
-			This is true in part for many things we make, but true in entirety for Fenn and Alistair.
-		</p>
-		<div class="tap b3"></div>
-		<p>
-			This episode was a joy, once again, to make. What a great gift, a gift that gives to all. 
-			I was going to wax lyrical about how much you inspire me, but I've read last year's birthday card and it looks like I've covered that.
-			Not much has changed, but my admiration and gratitude have grown. 
-			Thank you so much for your support, encouragement, and care. 
-		</p>
-		<p>
-			
-			And now, for my favourite part of the birthday message - Other people's writing!
-		</p>
-		<p>
-			This one was picked, almost at random, from a book I'm reading at the moment. 
-			Lorca's poems are all pretty grim, but refreshing, perhaps, for being less contemporary and more foreign.
-		</p>
+<html>
+	<head>
+		<title>HBD 2023</title>
 		<style>
-			ol.poem li { list-style-type: none;}
-			ol.poem li:hover { list-style-type: auto;}
-		</style>
-		<p><em> After a Walk <br>
-		by Federico García Lorca<br>
-		translated by Greg Simon and Steven F. White</em></p>
-		<ol class="poem">
-			<li>Cut down by the sky.</li>
-			<li>Between shapes moving toward the serpent</li>
-			<li>and crystal-craving-shapes,</li>
-			<li>I'll let my hair grow.</li>
-		</ol>
-		<ol class="poem" start="5">
-			<li>With the amputated tree that doesn't sing</li>
-			<li>and the child with the blank face of an egg.</li>
-		</ol>
-		<ol class="poem" start="7">
-			<li>With the little animals whose skulls are cracked</li>
-			<li>and the water, dressed in rags but with dry feet.</li>
-		</ol>
-		<ol class="poem" start="9">
-			<li>With all the bone-tired, deaf-and-dumb things</li>
-			<li>and a butterfly drowned in the inkwell</li>
-		</ol>
-		<ol class="poem" start="11">
-			<li>Bumping into my own face, different each day.</li>
-			<li>Cut down by the sky!</li>
-		</ol>
-		
-		<p>This next one is from a book I bought earlier this year, <em>Petal</em> by <em>Chelsea Hart</em></p>
-		<p>
-			Chelsea is a friend of a friend, and this is her debut book. This part talks about gardening, 
-			which I know occupies a growing part of your life now that you're a landowner.
-		</p>
-		<ol class="poem">
-			<li>Weeds are just </li>
-			<li>misunderstood</li>
-			<li>you told me</li>
-			<li>defensively</li>
-			<li><br></li>
-			<li>Making room for dandelions.</li>
-			<li><br></li>
+			body {
+				padding: 10px;
+				margin: 0;
+			}
+			img {
+				max-width: 600px;
+				width: 100%;
+				display: block;
+				filter: saturate(0);
+			}
+			img:hover { filter: saturate(1); }
+			
+			article, figure { max-width: 500px; }
+			article, audio, figure { padding: 10px; }
 
-			<li>Because they are seen as purposeless</li>
-			<li>doesn't mean they have no purpose.</li>
-			<li><br></li>
-			<li>It was just</li>
-			<li>'a plant in the wrong place'</li>
-			<li><br></li>
-			<li>of what?</li>
-			<li><br></li>
-			<li>your garden?</li>
-			<li><br></li>
-			<li>it was never yours anyway.</li>
-		</ol>
-		//
-			<p><em>(Louis' note: I skipped a couple of stanzas here)</em></p>
-		//
-		<ol class="poem">
-			<li>Something that grows</li>
-			<li>outwards</li>
-			<li>not upwards</li>
-			<li><br></li>
-			<li>is a story we dont talk about</li>
-			<li>when we talk about growing.</li>
-		</ol>
-		//
-		<ol class="poem">
-			<li>You drew a rhizome for me once</li>
-			<li>I was reading Deleuze.</li>
-			<li><br></li>
-			<li>You said:</li>
-			<li><br></li>
-			<li>'You don't need to read a book</li>
-			<li>this big</li>
-			<li>with all these words </li>
-			<li>to know that things grow outwards and upwards.'</li>
-		</ol>
-		<div class="tap b4"></div>	
-	</section>
-</main>
-<script src="./birthdayscripts.js"> </script>
-</body>
+			ol.poem li { list-style-type: none; white-space: pre;}
+			ol.poem li:hover { list-style-type: auto; }
+			ol.poem li:empty { height: 1em; display: block;}
+		</style>
+	</head>
+	<body>
+		<audio src="2023.mp3" controls></audio>
+		<article>
+		<p>
+		Happy Birthday Giles!
+		</p>
+		<p>
+		It's been over a year now since I was supposed to give this to you. 
+		What is that invisible, unknowable obstacle that rises up 
+		and sits between me and the task at hand?
+		It is a game. 
+		</p>
+		
+		<p>
+		In the past I was more concerned about saying something relevant 
+		for the occasion. Reflecting on the years gone by, encouragement 
+		in maturity, appreciation for the shared experiences. I would seek 
+		out topical quotes and poems. This was fine, but it feels a little 
+		like youthful folly. The occasion is right now, and what is relevant 
+		is what I have to share. I've enjoyed putting this together. Moths 
+		will eat our clothes, thieves will steal our riches, children will tear 
+		up our books. Here's some artwork and poems I've enjoyed this last year:
+		</p>
+		</article>
+
+		<figure>
+			<img src="illa_camelido.jpg" />
+			<figcaption>
+				<p>
+				Illa (camélido)<br>
+				600 a. C. - 600 d. C.<br>
+				Andesita tallada y pulida<br>
+				</p>
+				<p>
+				I saw this in the Museum of Fine Arts here in Buenos Aires. Took a photo, thought about it a lot. Came back to see it again this year. ~2000 years ago the cartoonish proportions I love were in turned loved. 
+				</p>
+			</figcaption>
+		</figure>
+		
+		<figure>
+			<img src="magic_weaver.jpg" />
+			<figcaption>
+				<p>
+				Magic weaver <br>
+				2005 <br>
+				Yvonne Koolmatrie <br>
+				Sedge (Carex sp.), wood <br>
+				(a-b) 116.0 × 56.0 × 92.4 cm (overall) <br>
+				Berri, South Australia <br>
+				</p>
+				<p>
+				This is human sized, they had it displayed halfway up the stairs in the NGV National. In the corner, on the flat landing where the stairs turn on themselves to double back the horizontal distance from where they begin. I think it's funny that it has grass in it's basket. <a href="https://www.youtube.com/watch?v=Lg1lKivZqiw">"That's Meat Man's meat"</a>.
+			</figcaption>
+		</figure>
+
+		<figure>
+			<img src="lamentacion_01.jpg" />
+			<figcaption>
+				<p>
+				Lamentación <br>
+				Burmann, Fritz <br>
+				1929 <br>
+				Óleo <br>
+				67 x 54 cm
+				</p>
+				<p>
+				Something about this strikes me as incredibly modern. 
+				It's so saturated, and so exagerated. I think I sent this 
+				to Dad for his birthday last year. I'm trying to keep it in
+				the family. Crazy way to hold someone's head, with your fingers
+				straddling one eyeball and your chin and jowel pressed over 
+				the other one. Please never do this to me. 
+				</p>
+			</figcaption>
+		</figure>
+		
+		<figure>
+			<img src="sid_long.jpg" />
+			<figcaption>
+				<p>
+				Sydney Long <br>
+				Farm landscape 1905 <br>
+				oil on canvas <br>
+				92.0 (h) x 59.2 (w) cm <br>
+				signed and dated ‘SID LONG/ 1905’ lower right <br>
+				</p>
+				<p>
+				The Gallery of New South Wales calls him Sydney,
+				the National gallery of Victoria calls him Sid.
+				He did other works where he inserted mythical greek
+				figures into the australian landscape. His style
+				is considered "art nouveau" inspired. I liked the portrait 
+				orientation of this, the magical appearance of the trees, their
+				thin branches like hairline cracks in a bright overcast sky. 
+				I have produced very little from all my time reading about 
+				plants and plant morphology, but I have received new eyes.
+				<p>
+			</figcaption>
+		</figure>
+		
+		<article>
+			<p>
+			Speaking of all my time reading about plants,
+			here's a bit about Derek Jarman from one of the books I read: 
+			<blockquote>
+			<p>
+			In 1987, Derek Jarman bought a former fisherman's cottage on 
+			Dungeness Beach in Kent. It's a wild, bleak place: in one direction, 
+			a nuclear power station looms like a portent of doom; in the other, 
+			infinity is intimated in the slate-grey waves of the English Channel.
+
+			The year before he bought Prospect Cottage, the artist, activist and 
+			filmmaker was diagnosed with HIV.
+			
+			Writing in the catalogue accompanying this exhibition, Jarman's friend, 
+			the photographer Howard Sooley, recalls: 'He cheated death hiding among
+			the flowers and dancing with the bees.' Jarman painted the walls of his
+			new home tar black and its window frames buttercup yellow. Refusing
+			to be cowed by the inhospitable terrain, he cultivated plants that could
+			withstand the shingle and the fierce, salty winds and bloom brightly:
+			alexanders, foxgloves, periwinkle, poppies, purple iris, sea kale,
+			viper's	bugloss and others. His garden was as much a metaphor 
+			for memory and hope as it was earth and plants. 
+			</p>
+			</blockquote>
+			<p>⚘</p>
+			<ol class="poem">
+				<li>Here at the sea’s edge </li>
+				<li>I have planted my dragon-toothed garden </li>
+				<li>to defend the porch, </li>
+				<li>steadfast warriors </li>
+				<li>against those who protest their impropriety </li>
+				<li>even to the end of the world. </li>
+				<li>A fathomless lethargy has swallowed me, </li>
+				<li>great waves of doubt broken me, </li>
+				<li>all my thoughts washed away. </li>
+				<li>The storms have blown salt tears, </li>
+				<li>burning my garden, </li>
+				<li>Gethsmane and Eden </li>
+			</ol>
+			<p>⚘</p>
+			<ol class="poem">
+				<li>I walk in this garden </li>
+				<li>Holding the hands of dead friends. </li>
+				<li>Old age came quickly for my frosted generation,  </li>
+				<li>Cold, cold, cold, they died so silently. </li>
+				<li>Did the forgotten generations scream  </li>
+				<li>Or go full of resignation,  </li>
+				<li>Quietly protesting innocence? </li>
+				<li>I have no words, </li>
+				<li>My shaking hand cannot express my fury. </li>
+				<li>Cold, cold, cold, they died so silently. </li>
+				<li></li>
+				<li>Linked hands at 4 a.m., </li>
+				<li>Deep under the city you slept on, </li>
+				<li>Never heard the sweet flesh song. </li>
+				<li>Cold, cold, cold, they died so silently. </li>
+				<li></li>
+				<li>Matthew fucked Mark fucked Luke fucked John </li>
+				<li>Who lay in the bed that I lie on, </li>
+				<li>Touch fingers again as you sing this song. </li>
+				<li>Cold, cold, cold, we die so silently. </li>
+				<li></li>
+				<li>My gilly flowers, roses, violet blue,  </li>
+				<li>Sweet garden of vanished pleasures, </li>
+				<li>Please come back next year. </li>
+				<li>Cold, cold, cold, I die so silently. </li>
+				<li></li>
+				<li>Goodnight boys, goodnight Johnny,  </li>
+				<li>Goodnight, goodnight. </li>
+				<li></li>
+				<li>Jarman, Derek Jarman's Garden, 81. </li>
+			</ol>
+		</article>
+
+		<figure>
+			<img src="yo_soy_02.jpg" />
+			<img src="yo_soy_01.jpg" />
+			<figcaption>
+				<p>
+				Point of View (Punto de Vista)<br>
+				From the series of interventions called "Nomad"<br>
+				by Aaron Nachtailer (1986)<br>
+				</p>
+				<p>
+				I walked past this other building on my way to the museum of
+				fine arts. It's massive, styled like a roman pantheon. 
+				It's the Law Faculty of the University of Buenos Aires.
+				I saw something on the roof, though it was strange.
+				Couldn't make out what it said. You can imagine my delight
+				when I got to the roof of the Museum and found a pair of 
+				binoculars, pointing across the road. "I am" (yo soy). 
+				Eat your heart out Colin McCahon.
+				</p>
+			</figcaption>
+		</figure>
+
+	</body>
 </html>
